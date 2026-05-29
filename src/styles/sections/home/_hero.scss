@@ -1,0 +1,108 @@
+@use '../../abstracts/variables' as v;
+@use '../../abstracts/mixins' as m;
+
+// Hero Section
+.hero {
+    min-height: 100vh;
+    padding: 0;
+    @include m.flex-center;
+    position: relative;
+    overflow: hidden;
+    
+    // Background gradient blob
+    &::before {
+        content: '';
+        position: absolute;
+        top: -10%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(v.$accent-color, 0.2) 0%, rgba(0,0,0,0) 70%);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        
+        @include m.mobile {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2rem;
+        }
+    }
+    
+    .hero-text {
+        h1 {
+            font-family:v.$font-heading;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            
+            span {
+                background: linear-gradient(to right, v.$accent-color, #60a5fa);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        
+        p {
+            font-size: 1.2rem;
+            color: v.$text-muted;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            
+            @include m.mobile {
+                margin: 0 auto 2rem;
+            }
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            
+            @include m.mobile {
+                justify-content: center;
+            }
+        }
+    }
+    
+    .hero-img {
+        position: relative;
+        
+        .img-wrapper {
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(v.$accent-color, 0.3);
+            position: relative;
+            margin: 0 auto;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to bottom, transparent 80%, v.$bg-color);
+            }
+        }
+        
+        @include m.mobile {
+            .img-wrapper {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    }
+}

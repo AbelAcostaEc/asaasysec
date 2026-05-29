@@ -1,0 +1,62 @@
+@use '../../abstracts/variables' as v;
+@use '../../abstracts/mixins' as m;
+
+// Portfolio
+.portfolio {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .project-card {
+        @include m.glass-effect;
+        border-radius: 16px;
+        
+        .project-img {
+            height: 200px;
+            background: v.$card-bg;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: v.$text-muted;
+            font-size: 3rem;
+            overflow: hidden;
+            
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+            
+            h3 {
+                color: v.$white;
+                margin-bottom: 0.5rem;
+            }
+            
+            p {
+                color: v.$text-muted;
+                font-size: 0.95rem;
+                margin-bottom: 1rem;
+            }
+            
+            .tech-stack {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                
+                span {
+                    font-size: 0.8rem;
+                    color: v.$accent-color;
+                    background: rgba(v.$accent-color, 0.1);
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}

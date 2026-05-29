@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+// Footer
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    color: v.$text-muted;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(v.$white, 0.05);
+}

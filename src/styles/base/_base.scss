@@ -1,0 +1,34 @@
+@forward 'fonts';
+@use '../abstracts/variables' as v;
+@forward 'reset';
+@forward 'typography';
+
+
+body {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+section {
+    padding: v.$spacing-xl 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 v.$spacing-md;
+}

@@ -1,0 +1,75 @@
+@use '../../abstracts/variables' as v;
+@use '../../abstracts/mixins' as m;
+
+// Contact
+.contact {
+    text-align: center;
+
+    .contact-content {
+        max-width: 600px;
+        margin: 0 auto;
+        @include m.glass-effect;
+        padding: 3rem;
+        border-radius: 20px;
+
+        p {
+            color: v.$text-muted;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: v.$white;
+                font-weight: 500;
+
+                i {
+                    color: v.$accent-color;
+                    font-size: 1.2rem;
+                }
+
+                svg {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    fill: v.$accent-color;
+                }
+
+                &:hover {
+                    color: v.$accent-color;
+                }
+            }
+        }
+
+        .social-links{
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+
+            .icon-link {
+                text-decoration: none;
+                color: v.$white;
+                font-size: 1.5rem;
+                transition: color 0.3s;
+
+                svg {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+
+                &:hover {
+                    color: v.$accent-color;
+                }
+
+            }
+        }
+    }
+}

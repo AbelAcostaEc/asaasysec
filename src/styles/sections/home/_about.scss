@@ -1,0 +1,48 @@
+@use '../../abstracts/variables' as v;
+@use '../../abstracts/mixins' as m;
+
+// About & Skills
+.about {
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+
+        @include m.mobile {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .skills-wrapper {
+        h3 {
+            font-family: v.$font-heading;
+            margin-bottom: 1.5rem;
+            color: v.$white;
+        }
+
+        .skill-category {
+            margin-bottom: 2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+
+            span {
+                background: rgba(v.$accent-color, 0.1);
+                color: v.$accent-color;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                border: 1px solid rgba(v.$accent-color, 0.2);
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: v.$accent-color;
+                    color: v.$white;
+                }
+            }
+        }
+    }
+}

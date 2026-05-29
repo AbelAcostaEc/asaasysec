@@ -1,0 +1,121 @@
+@use '../../abstracts/variables' as v;
+@use '../../abstracts/mixins' as m;
+
+// Experience
+.experience {
+    .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: rgba(v.$white, 0.1);
+
+            @include m.mobile {
+                left: 20px;
+            }
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 50%;
+
+            &:nth-child(odd) {
+                left: 0;
+                padding-right: 40px;
+                text-align: right;
+
+                .timeline-dot {
+                    right: -6px;
+                }
+
+                @include m.mobile {
+                    left: 0;
+                    width: 100%;
+                    padding-left: 50px;
+                    padding-right: 0;
+                    text-align: left;
+
+                    .timeline-dot {
+                        left: 14px;
+                        right: auto;
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                left: 50%;
+                padding-left: 40px;
+
+                .timeline-dot {
+                    left: -6px;
+                }
+
+                @include m.mobile {
+                    left: 0;
+                    width: 100%;
+                    padding-left: 50px;
+
+                    .timeline-dot {
+                        left: 14px;
+                    }
+                }
+            }
+
+            .timeline-dot {
+                position: absolute;
+                top: 0;
+                width: 14px;
+                height: 14px;
+                background: v.$accent-color;
+                border-radius: 50%;
+                box-shadow: 0 0 0 4px rgba(v.$accent-color, 0.2);
+            }
+
+            .timeline-content {
+                @include m.glass-effect;
+                padding: 1.5rem;
+                border-radius: 12px;
+
+                .date {
+                    color: v.$accent-color;
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                    display: block;
+                }
+
+                h3 {
+                    color: v.$white;
+                    font-size: 1.2rem;
+                    margin-bottom: 0.2rem;
+                }
+
+                h4 {
+                    color: v.$text-muted;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    margin-bottom: 1rem;
+                }
+
+                ul {
+                    list-style: disc;
+                    list-style-position: inside;
+                    color: v.$text-muted;
+                    font-size: 0.95rem;
+
+                    li {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

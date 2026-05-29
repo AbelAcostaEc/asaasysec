@@ -1,0 +1,110 @@
+@use '../../abstracts/variables' as v;
+
+.blog-content {
+    background: rgba(30, 41, 59, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: v.$text-color;
+
+    .onboarding {
+        text-align: center;
+        padding: 2rem;
+
+        i {
+            font-size: 3rem;
+            color: v.$accent-color;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .markdown-body {
+
+        h1,
+        h2,
+        h3 {
+            color: v.$white;
+            font-family: v.$font-heading;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: v.$text-muted;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: v.$text-muted;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #e2e8f0;
+        }
+
+        pre {
+            background: #1e1e1e;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+
+            code {
+                background: transparent;
+                padding: 0;
+                color: inherit;
+            }
+        }
+
+        blockquote {
+            border-left: 4px solid v.$accent-color;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            color: v.$text-muted;
+            font-style: italic;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+    }
+
+    .error-message {
+        text-align: center;
+
+        h2,
+        p {
+            color: #ef4444;
+        }
+
+        .text-small {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    }
+}
