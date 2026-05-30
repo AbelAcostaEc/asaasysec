@@ -1,0 +1,92 @@
+{
+	"name": "Abel Acosta",
+	"title": "Tecnólogo en Análisis de Sistemas",
+	"role": "Desarrollador Full Stack",
+	"description": "Desarrollador Full Stack especializado en crear aplicaciones web y móviles funcionales, combinando código eficiente con una experiencia de usuario excepcional.",
+
+	"about": {
+		"paragraphs": ["Soy un desarrollador apasionado por la tecnología y la innovación. Busco aportar soluciones prácticas utilizando tecnologías modernas como Laravel, Angular y herramientas de automatización como N8N.", "Me enfoco en el liderazgo técnico, la comunicación efectiva y la resolución de problemas para entregar productos de alta calidad."]
+	},
+
+	"languages": ["Español (Nativo)", "Inglés (A2)"],
+
+	"skills": [
+		{
+			"category": "Backend & Database",
+			"items": ["PHP (Laravel)", "MySQL", "PostgreSQL", "MongoDB", "N8N"]
+		},
+		{
+			"category": "Frontend",
+			"items": ["Angular", "TypeScript", "HTML5", "CSS3", "JavaScript"]
+		},
+		{
+			"category": "Soft Skills",
+			"items": ["Liderazgo Técnico", "Comunicación Efectiva", "Resolución de Problemas", "Adaptabilidad"]
+		}
+	],
+
+	"projects": [
+		{
+			"name": "Proyecto Bellas Artes",
+			"description": "Tienda Online realizada en WordPress.",
+			"technologies": ["WordPress", "Elementor"]
+		},
+		{
+			"name": "Proyecto Artesanías",
+			"description": "Página informativa sobre los productos que ofrece el negocio.",
+			"technologies": ["HTML", "CSS", "JavaScript"]
+		},
+		{
+			"name": "Manualidades",
+			"description": "Página informativa de negocio de manualidades.",
+			"technologies": ["HTML", "CSS", "JavaScript", "Bootstrap"]
+		}
+	],
+
+	"experience": [
+		{
+			"position": "Desarrollador Full Stack",
+			"company": "GRAMEDIA",
+			"period": "2023 - Actualidad",
+			"responsibilities": ["Desarrollo integral de aplicaciones web, móviles y de escritorio.", "Implementación de soluciones E-commerce y portales corporativos.", "Automatización de flujos con N8N.", "Gestión de bases de datos SQL y NoSQL."]
+		},
+		{
+			"position": "Desarrollador / QA (Pasantía)",
+			"company": "EASYSOFT S.A.",
+			"period": "2021 - 2022",
+			"responsibilities": ["Desarrollo de módulos bajo estándares ISO.", "Gestión de pasos a producción.", "Documentación técnica y gestión de incidentes."]
+		}
+	],
+
+	"contact": {
+		"phone": "+593984906571",
+		"email": "abel.2833@hotmail.com",
+		"location": "Quito, Ecuador",
+		"github": "https://github.com/AbelAcostaEc",
+		"linkedin": "https://www.linkedin.com/in/abel-acosta-asaa/",
+		"whatsapp": "https://wa.me/593984906571"
+	},
+	"trabajos": [
+		{
+			"titulo": "Proyecto Bellas Artes",
+			"descripcion": "Tienda Online realizada en WordPress.",
+			"tecnologias": ["WordPress", "Elementor"],
+			"imagen": "build/img/BellasArtes.webp",
+			"url": "#"
+		},
+		{
+			"titulo": "Proyecto Artesanias",
+			"descripcion": "Página informativa sobre los productos que ofrece el negocio,",
+			"tecnologias": ["HTML", "CSS", "JavaScript"],
+			"imagen": "build/img/ArtesaniasRinoceronte.webp",
+			"url": "https://artesaniasrinoceronte.netlify.app"
+		},
+		{
+			"titulo": "Manualidades",
+			"descripcion": " Pagina informativa de negocio de manualidades",
+			"tecnologias": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+			"imagen": "build/img/Manualidades.webp",
+			"url": "https://manualidadesasa.netlify.app"
+		}
+	]
+}

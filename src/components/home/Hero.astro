@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import fotoAbel from "../../assets/images/foto_Abel.jpeg";
+import data from "../../data/general.json";
 ---
 
 <!-- Hero Section -->
@@ -8,8 +9,8 @@ import fotoAbel from "../../assets/images/foto_Abel.jpeg";
 	<div class="container">
 		<div class="hero-content">
 			<div class="hero-text">
-				<h1>Hola, soy <br /><span>Abel Acosta</span></h1>
-				<p>Tecnólogo en Análisis de sistemas, Desarrollador Full Stack especializado en crear aplicaciones web y móviles funcionales, combinando código eficiente con una experiencia de usuario excepcional.</p>
+				<h1>Hola, soy <br /><span>{data.name}</span></h1>
+				<p>{data.title}, {data.description}</p>
 				<div class="hero-btns">
 					<a href="#contact" class="btn btn-primary">Contáctame</a>
 					<a href="#portfolio" class="btn btn-outline">Ver Proyectos</a>
@@ -17,7 +18,7 @@ import fotoAbel from "../../assets/images/foto_Abel.jpeg";
 			</div>
 			<div class="hero-img">
 				<div class="img-wrapper">
-					<Image src={fotoAbel} alt="Abel Acosta" width={500} quality={90} loading="eager" />
+					<Image src={fotoAbel} alt={data.name} width={500} quality={90} loading="eager" />
 				</div>
 			</div>
 		</div>
