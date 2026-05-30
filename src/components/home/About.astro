@@ -1,0 +1,33 @@
+---
+import data from "../../data/general.json";
+import SkillCategory from "./SkillCategory.astro";
+
+const { about, languages, skills } = data;
+---
+
+<!-- About & Skills -->
+<section id="about" class="about">
+	<div class="container">
+		<h2 class="section-title">Sobre <span>Mí</span></h2>
+		<div class="about-grid">
+			<div class="about-text">
+				<div class="card">
+					{about?.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+					<div class="languages">
+						<strong>Idiomas:</strong>
+						<ul>
+							{languages?.map((language) => <li>{language}</li>)}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="skills-wrapper">
+				{
+					skills?.map((skillCategory) => {
+						return <SkillCategory title={skillCategory.category} skills={skillCategory.items} />;
+					})
+				}
+			</div>
+		</div>
+	</div>
+</section>
