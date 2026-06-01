@@ -1,0 +1,32 @@
+---
+import data from "../../data/general.json";
+const { experience } = data;
+---
+
+<!-- Experience -->
+<section id="experience" class="experience">
+	<div class="container">
+		<h2 class="section-title">Mi <span>Experiencia</span></h2>
+		<div class="timeline">
+            {
+                experience.map((item) => {
+                    return (
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="date">{item.period}</span>
+                                <h3>{item.position}</h3>
+                                <h4>{item.company}</h4>
+                                <ul>
+                                    {item.responsibilities.map((resp) => (
+                                        <li>{resp}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    );
+                })
+            }
+		</div>
+	</div>
+</section>
