@@ -2,23 +2,52 @@
 @use '../../abstracts/mixins' as m;
 
 .blog-sidebar {
-    background: rgba(30, 41, 59, 0.5);
+    background: rgba(15, 23, 42, 0.72);
     backdrop-filter: blur(10px);
-    padding: 1.5rem;
-    border-radius: 12px;
+    padding: 1rem;
+    border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: fit-content;
+    max-height: calc(100vh - 112px);
+    overflow-y: auto;
+    position: sticky;
+    top: 92px;
 
     @include m.mobile {
-        margin-bottom: 2rem;
+        max-height: none;
+        overflow: visible;
+        position: static;
+        margin-bottom: 0;
     }
 
-    h3 {
-        color: v.$white;
+    .sidebar-heading {
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
         font-family: v.$font-heading;
         margin-bottom: 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.75rem;
+
+        span {
+            color: v.$white;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        strong {
+            align-items: center;
+            background: rgba(20, 184, 166, 0.14);
+            border: 1px solid rgba(20, 184, 166, 0.24);
+            border-radius: 999px;
+            color: #5eead4;
+            display: inline-flex;
+            font-size: 0.8rem;
+            height: 1.6rem;
+            justify-content: center;
+            min-width: 1.6rem;
+            padding: 0 0.45rem;
+        }
     }
 
     .article-list {
@@ -33,15 +62,39 @@
             color: v.$text-muted;
             text-decoration: none;
             display: block;
-            padding: 0.5rem;
-            border-radius: 6px;
+            padding: 0.85rem;
+            border-radius: 8px;
             transition: all 0.2s;
             font-size: 0.95rem;
+            border: 1px solid transparent;
 
             &:hover {
-                background: rgba(59, 130, 246, 0.1);
-                color: v.$accent-color;
+                background: rgba(255, 255, 255, 0.05);
+                border-color: rgba(59, 130, 246, 0.24);
+                color: v.$white;
             }
+
+            &.active {
+                background: rgba(59, 130, 246, 0.16);
+                border-color: rgba(59, 130, 246, 0.38);
+                color: v.$white;
+            }
+        }
+
+        .article-title,
+        .article-meta {
+            display: block;
+        }
+
+        .article-title {
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .article-meta {
+            color: #7dd3fc;
+            font-size: 0.78rem;
+            margin-top: 0.35rem;
         }
     }
 }

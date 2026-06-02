@@ -1,0 +1,103 @@
+---
+import { getCollection, render } from "astro:content";
+import Footer from "../../components/Footer.astro";
+import Navbar from "../../components/Navbar.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const getSlug = (post) => post.data.slug ?? post.id.replace(/\.(md|mdx)$/, "");
+const getLabel = (post) => {
+	const slug = getSlug(post);
+	const fallback = slug
+		.replace(/[-_]/g, " ")
+		.replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+	return post.data.title && post.data.title !== "Contenido Pagina"
+		? post.data.title
+		: fallback;
+};
+const formatDate = (date) =>
+	date?.toLocaleDateString("es", {
+		day: "2-digit",
+		month: "short",
+		year: "numeric",
+	});
+
+export async function getStaticPaths() {
+	const getPostSlug = (post) =>
+		post.data.slug ?? post.id.replace(/\.(md|mdx)$/, "");
+	const posts = await getCollection("blog");
+
+	return posts.map((post) => ({
+		params: {
+			slug: getPostSlug(post),
+		},
+
+		props: {
+			post,
+		},
+	}));
+}
+
+const { post } = Astro.props;
+const currentSlug = getSlug(post);
+const posts = (await getCollection("blog")).sort((a, b) =>
+	(b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0)
+);
+
+const { Content } = await render(post);
+---
+
+<Layout>
+	<Navbar />
+	<main class="container blog-container">
+		<aside class="blog-sidebar" aria-label="Notas de blog">
+			<div class="sidebar-heading">
+				<span>Blog</span>
+				<strong>{posts.length}</strong>
+			</div>
+			<ul class="article-list">
+				{
+					posts.map((item) => {
+						const slug = getSlug(item);
+
+						return (
+							<li>
+								<a
+									class:list={{ active: slug === currentSlug }}
+									href={`/blog/${slug}`}
+								>
+									<span class="article-title">{getLabel(item)}</span>
+									<span class="article-meta">
+										{item.data.category ?? "Nota"}
+										{item.data.readingTime ? ` · ${item.data.readingTime}` : ""}
+									</span>
+								</a>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</aside>
+
+		<article class="blog-content">
+			<header class="blog-article-header">
+				<div class="blog-kicker">
+					<span>{post.data.category ?? "Nota"}</span>
+					{post.data.date && <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>}
+					{post.data.readingTime && <span>{post.data.readingTime}</span>}
+				</div>
+				<h1>{getLabel(post)}</h1>
+				{post.data.description && <p>{post.data.description}</p>}
+				{post.data.tags && (
+					<ul class="tag-list" aria-label="Etiquetas">
+						{post.data.tags.map((tag) => <li>{tag}</li>)}
+					</ul>
+				)}
+			</header>
+			<div class="markdown-body">
+				<Content />
+			</div>
+		</article>
+	</main>
+	<Footer />
+</Layout>
