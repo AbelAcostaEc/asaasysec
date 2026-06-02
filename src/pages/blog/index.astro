@@ -32,7 +32,12 @@ const renderedPost = currentPost ? await render(currentPost) : null;
 const Content = renderedPost?.Content;
 ---
 
-<Layout>
+<Layout
+	title="Blog | Abel Acosta"
+	description="Blog técnico de Abel Acosta con artículos sobre Laravel, Ionic, desarrollo web, programación y automatización."
+	keywords={["Blog", "Tutoriales", "Laravel", "Ionic", "Desarrollo Web", "Programación", "Abel Acosta", "N8N"]}
+	canonical="/blog/"
+>
 	<Navbar />
 	<main class="container blog-container">
 		<aside class="blog-sidebar" aria-label="Notas de blog">

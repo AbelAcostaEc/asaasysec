@@ -1,16 +1,128 @@
 ---
 import "../styles/main.scss";
+import general from "../data/general.json";
+
+const defaultTitle = `${general.name} | ${general.role}`;
+const defaultDescription =
+	"Portafolio de Abel Acosta, Desarrollador Full Stack especializado en Laravel, Angular, aplicaciones web, móviles y automatización con N8N.";
+const defaultKeywords = [
+	"Abel Acosta",
+	"Desarrollador Full Stack",
+	"Web Developer",
+	"Laravel",
+	"Angular",
+	"N8N",
+	"PHP",
+	"JavaScript",
+	"Portfolio",
+	"Quito",
+	"Ecuador",
+];
+
+const {
+	title = defaultTitle,
+	description = defaultDescription,
+	keywords = defaultKeywords,
+	type = "website",
+	image = "/og-image.jpeg",
+	canonical,
+	publishedTime,
+	modifiedTime,
+	tags = [],
+	noindex = false,
+} = Astro.props;
+
+const site = Astro.site ?? new URL("https://abelacostaec.github.io");
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, site).toString();
+const imageUrl = new URL(image, site).toString();
+const robots = noindex ? "noindex, nofollow" : "index, follow";
+const keywordContent = Array.isArray(keywords) ? keywords.join(", ") : keywords;
+
+const structuredData =
+	type === "article"
+		? {
+				"@context": "https://schema.org",
+				"@type": "BlogPosting",
+				headline: title,
+				description,
+				url: canonicalUrl,
+				image: imageUrl,
+				datePublished: publishedTime,
+				dateModified: modifiedTime ?? publishedTime,
+				author: {
+					"@type": "Person",
+					name: general.name,
+					url: site.toString(),
+				},
+				publisher: {
+					"@type": "Person",
+					name: general.name,
+				},
+				keywords: tags,
+			}
+		: {
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "Person",
+						name: general.name,
+						jobTitle: general.role,
+						url: site.toString(),
+						image: imageUrl,
+						email: general.contact.email,
+						telephone: general.contact.phone,
+						address: {
+							"@type": "PostalAddress",
+							addressLocality: "Quito",
+							addressCountry: "EC",
+						},
+						sameAs: [general.contact.github, general.contact.linkedin],
+						knowsAbout: defaultKeywords.slice(3, 9),
+					},
+					{
+						"@type": "WebSite",
+						name: defaultTitle,
+						url: site.toString(),
+						description: defaultDescription,
+						inLanguage: "es",
+					},
+				],
+			};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content={keywordContent} />
+		<meta name="author" content={general.name} />
+		<meta name="robots" content={robots} />
+		<meta name="theme-color" content="#0f172a" />
+		<link rel="canonical" href={canonicalUrl} />
+
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={imageUrl} />
+		<meta property="og:site_name" content={general.name} />
+		<meta property="og:locale" content="es_EC" />
+		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+		{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+		{tags.map((tag) => <meta property="article:tag" content={tag} />)}
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={imageUrl} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 	</head>
 	<body>
 		<slot />

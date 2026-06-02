@@ -40,6 +40,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const currentSlug = getSlug(post);
+const postTitle = `${getLabel(post)} | Abel Acosta`;
+const postDescription =
+	post.data.description ?? `Artículo técnico de Abel Acosta sobre ${getLabel(post)}.`;
 const posts = (await getCollection("blog")).sort((a, b) =>
 	(b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0)
 );
@@ -47,7 +50,16 @@ const posts = (await getCollection("blog")).sort((a, b) =>
 const { Content } = await render(post);
 ---
 
-<Layout>
+<Layout
+	title={postTitle}
+	description={postDescription}
+	keywords={["Abel Acosta", "Blog", "Desarrollo Web", ...(post.data.tags ?? [])]}
+	type="article"
+	canonical={`/blog/${currentSlug}/`}
+	publishedTime={post.data.date?.toISOString()}
+	modifiedTime={post.data.updatedDate?.toISOString() ?? post.data.date?.toISOString()}
+	tags={post.data.tags ?? []}
+>
 	<Navbar />
 	<main class="container blog-container">
 		<aside class="blog-sidebar" aria-label="Notas de blog">
