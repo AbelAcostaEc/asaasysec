@@ -1,4 +1,5 @@
 import { getCollection } from "astro:content";
+import { absoluteUrl } from "../utils/paths";
 
 const site = "https://abelacostaec.github.io";
 
@@ -17,7 +18,7 @@ export async function GET() {
 		...staticPages.map(
 			(page) => `
 	<url>
-		<loc>${site}${page.url}</loc>
+		<loc>${absoluteUrl(page.url, site)}</loc>
 		<changefreq>weekly</changefreq>
 		<priority>${page.priority}</priority>
 	</url>`
@@ -27,7 +28,7 @@ export async function GET() {
 
 			return `
 	<url>
-		<loc>${site}/blog/${getSlug(post)}/</loc>
+		<loc>${absoluteUrl(`/blog/${getSlug(post)}/`, site)}</loc>
 		${lastmod ? `<lastmod>${lastmod}</lastmod>` : ""}
 		<changefreq>monthly</changefreq>
 		<priority>0.7</priority>

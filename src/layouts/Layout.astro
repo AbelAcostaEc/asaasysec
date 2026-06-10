@@ -1,6 +1,7 @@
 ---
 import "../styles/main.scss";
 import general from "../data/general.json";
+import { absoluteUrl, withBase } from "../utils/paths";
 
 const defaultTitle = `${general.name} | ${general.role}`;
 const defaultDescription =
@@ -33,10 +34,43 @@ const {
 } = Astro.props;
 
 const site = Astro.site ?? new URL("https://abelacostaec.github.io");
-const canonicalUrl = new URL(canonical ?? Astro.url.pathname, site).toString();
-const imageUrl = new URL(image, site).toString();
+const canonicalUrl = absoluteUrl(canonical ?? Astro.url.pathname, site);
+const imageUrl = absoluteUrl(image, site);
+const siteUrl = absoluteUrl("/", site);
 const robots = noindex ? "noindex, nofollow" : "index, follow";
 const keywordContent = Array.isArray(keywords) ? keywords.join(", ") : keywords;
+const fontFaces = [
+	["Inter", 100, "inter-v20-latin-100.woff2"],
+	["Inter", 200, "inter-v20-latin-200.woff2"],
+	["Inter", 300, "inter-v20-latin-300.woff2"],
+	["Inter", 400, "inter-v20-latin-regular.woff2"],
+	["Inter", 500, "inter-v20-latin-500.woff2"],
+	["Inter", 600, "inter-v20-latin-600.woff2"],
+	["Inter", 700, "inter-v20-latin-700.woff2"],
+	["Outfit", 400, "outfit-v15-latin-regular.woff2"],
+	["Outfit", 500, "outfit-v15-latin-500.woff2"],
+	["Outfit", 700, "outfit-v15-latin-700.woff2"],
+	["Outfit", 800, "outfit-v15-latin-800.woff2"],
+	["Geist Sans", 100, "geist-sans-latin-100-normal.woff2"],
+	["Geist Sans", 200, "geist-sans-latin-200-normal.woff2"],
+	["Geist Sans", 300, "geist-sans-latin-300-normal.woff2"],
+	["Geist Sans", 400, "geist-sans-latin-400-normal.woff2"],
+	["Geist Sans", 500, "geist-sans-latin-500-normal.woff2"],
+	["Geist Sans", 600, "geist-sans-latin-600-normal.woff2"],
+	["Geist Sans", 700, "geist-sans-latin-700-normal.woff2"],
+	["Geist Sans", 800, "geist-sans-latin-800-normal.woff2"],
+	["Geist Sans", 900, "geist-sans-latin-900-normal.woff2"],
+]
+	.map(
+		([family, weight, file]) => `@font-face {
+	font-display: swap;
+	font-family: '${family}';
+	font-style: normal;
+	font-weight: ${weight};
+	src: url('${withBase(`/fonts/${file}`)}') format('woff2');
+}`
+	)
+	.join("\n");
 
 const structuredData =
 	type === "article"
@@ -52,7 +86,7 @@ const structuredData =
 				author: {
 					"@type": "Person",
 					name: general.name,
-					url: site.toString(),
+					url: siteUrl,
 				},
 				publisher: {
 					"@type": "Person",
@@ -67,7 +101,7 @@ const structuredData =
 						"@type": "Person",
 						name: general.name,
 						jobTitle: general.role,
-						url: site.toString(),
+						url: siteUrl,
 						image: imageUrl,
 						email: general.contact.email,
 						telephone: general.contact.phone,
@@ -82,7 +116,7 @@ const structuredData =
 					{
 						"@type": "WebSite",
 						name: defaultTitle,
-						url: site.toString(),
+						url: siteUrl,
 						description: defaultDescription,
 						inLanguage: "es",
 					},
@@ -95,8 +129,8 @@ const structuredData =
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
+		<link rel="icon" href={withBase("/favicon.ico")} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -122,10 +156,13 @@ const structuredData =
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageUrl} />
+		<style is:inline set:html={fontFaces}></style>
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 	</head>
 	<body>
 		<slot />
-		<script type="module" src="/src/scripts/main.js"></script>
+		<script>
+			import "../scripts/main.js";
+		</script>
 	</body>
 </html>

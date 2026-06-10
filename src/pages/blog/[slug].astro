@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Footer from "../../components/Footer.astro";
 import Navbar from "../../components/Navbar.astro";
 import Layout from "../../layouts/Layout.astro";
+import { withBase } from "../../utils/paths";
 
 const getSlug = (post) => post.data.slug ?? post.id.replace(/\.(md|mdx)$/, "");
 const getLabel = (post) => {
@@ -55,7 +56,7 @@ const { Content } = await render(post);
 	description={postDescription}
 	keywords={["Abel Acosta", "Blog", "Desarrollo Web", ...(post.data.tags ?? [])]}
 	type="article"
-	canonical={`/asaasysec/blog/${currentSlug}/`}
+	canonical={`/blog/${currentSlug}/`}
 	publishedTime={post.data.date?.toISOString()}
 	modifiedTime={post.data.updatedDate?.toISOString() ?? post.data.date?.toISOString()}
 	tags={post.data.tags ?? []}
@@ -76,7 +77,7 @@ const { Content } = await render(post);
 							<li>
 								<a
 									class:list={{ active: slug === currentSlug }}
-									href={`/asaasysec/blog/${slug}`}
+									href={withBase(`/blog/${slug}`)}
 								>
 									<span class="article-title">{getLabel(item)}</span>
 									<span class="article-meta">

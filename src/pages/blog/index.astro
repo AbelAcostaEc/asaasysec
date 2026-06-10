@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import Footer from "../../components/Footer.astro";
 import Navbar from "../../components/Navbar.astro";
 import Layout from "../../layouts/Layout.astro";
+import { withBase } from "../../utils/paths";
 
 const getSlug = (post) => post.data.slug ?? post.id.replace(/\.(md|mdx)$/, "");
 const getLabel = (post) => {
@@ -36,7 +37,7 @@ const Content = renderedPost?.Content;
 	title="Blog | Abel Acosta"
 	description="Blog técnico de Abel Acosta con artículos sobre Laravel, Ionic, desarrollo web, programación y automatización."
 	keywords={["Blog", "Tutoriales", "Laravel", "Ionic", "Desarrollo Web", "Programación", "Abel Acosta", "N8N"]}
-	canonical="/asaasysec/blog/"
+	canonical="/blog/"
 >
 	<Navbar />
 	<main class="container blog-container">
@@ -54,7 +55,7 @@ const Content = renderedPost?.Content;
 							<li>
 								<a
 									class:list={{ active: slug === currentSlug }}
-									href={`/asaasysec/blog/${slug}`}
+									href={withBase(`/blog/${slug}`)}
 								>
 									<span class="article-title">{getLabel(post)}</span>
 									<span class="article-meta">

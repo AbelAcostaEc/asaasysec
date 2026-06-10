@@ -1,13 +1,17 @@
+---
+import { withBase } from "../utils/paths";
+---
+
 <!-- Navbar -->
 <nav class="navbar">
 	<div class="container">
-		<a href="/asaasysec" class="logo">Abel<span>.</span></a>
+		<a href={withBase("/")} class="logo">Abel<span>.</span></a>
 		<div class="nav-links">
-			<a href="/asaasysec/#about">Sobre Mí</a>
-			<a href="/asaasysec/#experience">Experiencia</a>
-			<a href="/asaasysec/#portfolio">Portafolio</a>
-			<a href="/asaasysec/blog">Blog</a>
-			<a href="/asaasysec/#contact">Contacto</a>
+			<a href={withBase("/#about")}>Sobre Mí</a>
+			<a href={withBase("/#experience")}>Experiencia</a>
+			<a href={withBase("/#portfolio")}>Portafolio</a>
+			<a href={withBase("/blog")}>Blog</a>
+			<a href={withBase("/#contact")}>Contacto</a>
 		</div>
 	</div>
 </nav>
