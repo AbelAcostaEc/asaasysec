@@ -15,7 +15,7 @@
         
         .project-img {
             height: 200px;
-            background: v.$card-bg;
+            background: v.$bg-card;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -51,8 +51,8 @@
                 
                 span {
                     font-size: 0.8rem;
-                    color: v.$accent-color;
-                    background: rgba(v.$accent-color, 0.1);
+                    color: v.$color-primary;
+                    background: rgba(v.$color-primary, 0.1);
                     padding: 4px 8px;
                     border-radius: 4px;
                 }

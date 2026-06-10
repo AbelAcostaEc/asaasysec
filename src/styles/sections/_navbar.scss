@@ -25,25 +25,27 @@
     .logo {
         font-family: v.$font-heading;
         font-size: 1.5rem;
-        font-weight: 700;
+        font-weight: v.$fw-bold;
         color: v.$white;
 
         span {
-            color: v.$accent-color;
+            color: v.$color-primary;
         }
     }
 
     .nav-links {
         display: flex;
-        gap: 2rem;
+        gap: v.$space-lg;
 
         a {
             color: v.$text-muted;
-            font-weight: 500;
+            font-weight: v.$fw-medium;
+            font-family: v.$font-heading;
+            letter-spacing: v.$ls-wide;
 
             &:hover,
             &.active {
-                color: v.$accent-color;
+                color: v.$color-primary;
             }
         }
 

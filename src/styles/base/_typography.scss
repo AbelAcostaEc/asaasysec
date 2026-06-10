@@ -2,7 +2,33 @@
 
 body {
     font-family: v.$font-body;
-    background-color: v.$bg-color;
-    color: v.$text-color;
-    line-height: 1.6;
+    font-size: v.$fs-md;
+    line-height: v.$lh-normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: v.$font-heading;
+    font-weight: v.$fw-bold;
+    line-height: v.$lh-tight;
+}
+
+h1 {
+    font-size: v.$fs-h1;
+}
+
+h2 {
+    font-size: v.$fs-h2;
+}
+
+h3 {
+    font-size: v.$fs-h3;
+}
+
+h4 {
+    font-size: v.$fs-h4;
 }

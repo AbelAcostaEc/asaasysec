@@ -32,18 +32,18 @@
                 font-weight: 500;
 
                 i {
-                    color: v.$accent-color;
+                    color: v.$color-primary;
                     font-size: 1.2rem;
                 }
 
                 svg {
                     width: 1.5rem;
                     height: 1.5rem;
-                    fill: v.$accent-color;
+                    fill: v.$color-primary;
                 }
 
                 &:hover {
-                    color: v.$accent-color;
+                    color: v.$color-primary;
                 }
             }
         }
@@ -66,7 +66,7 @@
                 }
 
                 &:hover {
-                    color: v.$accent-color;
+                    color: v.$color-primary;
                 }
 
             }

@@ -1,21 +1,116 @@
 @use 'variables' as v;
 
-// Mixins
+// ======================================
+// CONTAINER
+// ======================================
+
+@mixin container {
+    width: min(100% - 2rem, v.$container-width);
+    margin-inline: auto;
+}
+
+// ======================================
+// FLEX
+// ======================================
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-@mixin glass-effect {
-    background: v.$card-bg;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+@mixin flex-column($gap: 0) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+// ======================================
+// CARDS
+// ======================================
+
+@mixin card {
+    background-color: v.$bg-card;
+    border: 1px solid v.$border-primary;
+    border-radius: v.$radius-lg;
+}
+
+@mixin glass-effect {
+    background: rgba(v.$bg-card, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// ======================================
+// BUTTONS
+// ======================================
+
+@mixin button-reset {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    font: inherit;
+}
+
+// ======================================
+// EFFECTS
+// ======================================
+
+@mixin hover-lift($distance: -5px) {
+    transition: v.$transition-base;
+
+    &:hover {
+        transform: translateY($distance);
+    }
+}
+
+// ======================================
+// POSITION
+// ======================================
+
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// ======================================
+// UTILITIES
+// ======================================
+
+@mixin truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+// ======================================
+// MEDIA QUERIES
+// ======================================
+
 @mixin mobile {
-    @media (max-width: #{v.$mobile}) {
+    @media (max-width: v.$bp-mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: v.$bp-tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (max-width: v.$bp-desktop) {
         @content;
     }
 }

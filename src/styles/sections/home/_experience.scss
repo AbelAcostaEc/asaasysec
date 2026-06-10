@@ -74,9 +74,9 @@
                 top: 0;
                 width: 14px;
                 height: 14px;
-                background: v.$accent-color;
+                background: v.$color-primary;
                 border-radius: 50%;
-                box-shadow: 0 0 0 4px rgba(v.$accent-color, 0.2);
+                box-shadow: 0 0 0 4px rgba(v.$color-primary, 0.2);
             }
 
             .timeline-content {
@@ -85,7 +85,7 @@
                 border-radius: 12px;
 
                 .date {
-                    color: v.$accent-color;
+                    color: v.$color-primary;
                     font-size: 0.9rem;
                     font-weight: 600;
                     margin-bottom: 0.5rem;

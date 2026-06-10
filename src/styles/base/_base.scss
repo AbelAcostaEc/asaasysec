@@ -1,34 +1,44 @@
-@forward 'fonts';
 @use '../abstracts/variables' as v;
 @forward 'reset';
 @forward 'typography';
 
-
 body {
+    font-family: v.$font-body;
+    background-color: v.$bg-primary;
+    color: v.$text-primary;
+    line-height: v.$lh-normal;
     overflow-x: hidden;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    text-decoration: none;
+    transition: v.$transition-base;
 }
 
-ul {
+ul,
+ol {
     list-style: none;
 }
 
-img {
-    max-width: 100%;
+img,
+picture {
     display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 section {
-    padding: v.$spacing-xl 0;
+    padding-block: v.$space-2xl;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 v.$spacing-md;
+    width: min(100% - 2rem, v.$container-width);
+    margin-inline: auto;
 }

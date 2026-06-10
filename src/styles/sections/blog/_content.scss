@@ -7,7 +7,7 @@
     padding: 2rem;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    color: v.$text-color;
+    color: v.$text-primary;
     min-width: 0;
 
     @include m.mobile {
@@ -20,7 +20,7 @@
 
         i {
             font-size: 3rem;
-            color: v.$accent-color;
+            color: v.$color-primary;
             margin-bottom: 1rem;
         }
     }
@@ -146,7 +146,7 @@
         }
 
         blockquote {
-            border-left: 4px solid v.$accent-color;
+            border-left: 4px solid v.$color-primary;
             padding-left: 1rem;
             margin: 1rem 0;
             color: v.$text-muted;
