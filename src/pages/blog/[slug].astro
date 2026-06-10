@@ -55,7 +55,7 @@ const { Content } = await render(post);
 	description={postDescription}
 	keywords={["Abel Acosta", "Blog", "Desarrollo Web", ...(post.data.tags ?? [])]}
 	type="article"
-	canonical={`/blog/${currentSlug}/`}
+	canonical={`/asaasysec/blog/${currentSlug}/`}
 	publishedTime={post.data.date?.toISOString()}
 	modifiedTime={post.data.updatedDate?.toISOString() ?? post.data.date?.toISOString()}
 	tags={post.data.tags ?? []}
@@ -76,7 +76,7 @@ const { Content } = await render(post);
 							<li>
 								<a
 									class:list={{ active: slug === currentSlug }}
-									href={`/blog/${slug}`}
+									href={`/asaasysec/blog/${slug}`}
 								>
 									<span class="article-title">{getLabel(item)}</span>
 									<span class="article-meta">
