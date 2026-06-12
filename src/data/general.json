@@ -9,6 +9,7 @@
 	},
 
 	"languages": ["Español (Nativo)", "Inglés (A2)"],
+	"main_skills": ["PHP (Laravel)", "Livewire", "Angular", "N8N", "Ionic", "Docker"],
 
 	"skills": [
 		{

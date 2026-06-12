@@ -1,34 +1,43 @@
-@use '../abstracts/variables' as v;
+@use "../abstracts/variables" as v;
 
 .btn {
-    display: inline-block;
-    padding: 12px 30px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-family: v.$font-heading;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-    
-    &.btn-primary {
-        background: linear-gradient(135deg, v.$color-primary, v.$color-primary-hover);
-        color: v.$white;
-        box-shadow: 0 4px 15px rgba(v.$color-primary, 0.3);
-        
-        &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(v.$color-primary, 0.4);
-        }
-    }
-    
-    &.btn-outline {
-        background: transparent;
-        border: 2px solid v.$color-primary;
-        color: v.$color-primary;
-        
-        &:hover {
-            background: v.$color-primary;
-            color: v.$white;
-        }
-    }
+	display: inline-block;
+	padding: 12px 30px;
+	font-weight: v.$fw-semibold;
+	font-family: v.$font-heading;
+	font-size: v.$fs-sm;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	border: none;
+
+	&.btn-primary {
+		background: linear-gradient(135deg, v.$color-primary, v.$color-primary-hover);
+		color: darken(v.$color-primary, 25%);
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 6px 20px rgba(v.$color-primary, 0.4);
+		}
+	}
+
+	&.btn-outline {
+		background: transparent;
+		border: 2px solid v.$color-primary;
+		color: v.$color-primary;
+
+		&:hover {
+			background: v.$color-primary;
+			color: v.$white;
+		}
+
+		&.btn-outline-white {
+			color: v.$white;
+			border-color: v.$border-secondary;
+
+			&:hover {
+				background: v.$bg-secondary;
+				color: v.$white;
+			}
+		}
+	}
 }

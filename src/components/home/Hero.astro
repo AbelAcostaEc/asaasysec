@@ -2,23 +2,26 @@
 import { Image } from "astro:assets";
 import fotoAbel from "../../assets/images/foto_Abel.jpeg";
 import data from "../../data/general.json";
+const { title, description, main_skills } = data;
 ---
 
 <!-- Hero Section -->
 <section class="hero">
 	<div class="container">
+		<div class="hero-badge">
+			<span class="dot">&nbsp;</span>
+			<span class="">Desarrollador Full Stack</span>
+		</div>
 		<div class="hero-content">
 			<div class="hero-text">
-				<h1>Hola, soy <br /><span>{data.name}</span></h1>
-				<p>{data.title}, {data.description}</p>
+				<h1>Full Stack Developer especializado en sistemas empresariales</h1>
+				<p>{title}, {description}</p>
+				<div class="skills-container">
+					{main_skills.map((skill) => <span class="skill">{skill}</span>)}
+				</div>
 				<div class="hero-btns">
 					<a href="#contact" class="btn btn-primary">Contáctame</a>
-					<a href="#portfolio" class="btn btn-outline">Ver Proyectos</a>
-				</div>
-			</div>
-			<div class="hero-img">
-				<div class="img-wrapper">
-					<Image src={fotoAbel} alt={data.name} width={500} quality={90} loading="eager" />
+					<a href="#portfolio" class="btn btn-outline btn-outline-white">Ver Proyectos</a>
 				</div>
 			</div>
 		</div>
