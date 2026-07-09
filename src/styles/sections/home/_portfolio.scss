@@ -11,6 +11,12 @@
 		gap: v.$space-md;
 		margin-bottom: v.$space-xl;
 
+		@include m.mobile {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: v.$space-xxs;
+		}
+
 		.section-tag {
 			font-family: v.$font-heading;
 			font-size: v.$fs-xs;
@@ -33,6 +39,7 @@
 
 			@include m.mobile {
 				font-size: v.$fs-h3;
+				white-space: normal;
 			}
 		}
 
@@ -40,6 +47,10 @@
 			flex-grow: 1;
 			height: 1px;
 			background-color: rgba(v.$white, 0.05);
+
+			@include m.mobile {
+				display: none;
+			}
 		}
 	}
 
