@@ -42,6 +42,7 @@
             font-weight: v.$fw-medium;
             font-family: v.$font-heading;
             letter-spacing: v.$ls-wide;
+            transition: color v.$transition-fast;
 
             &:hover,
             &.active {
@@ -49,8 +50,81 @@
             }
         }
 
+        @media (max-width: v.$bp-tablet) {
+            gap: v.$space-sm;
+            font-size: v.$fs-sm;
+        }
+
         @include m.mobile {
-            display: none; // TODO: Implement mobile menu
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(v.$bg-primary, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            gap: v.$space-lg;
+            padding: v.$space-2xl v.$space-lg;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform v.$transition-base;
+
+            &.active {
+                transform: translateY(0);
+            }
+
+            a {
+                font-size: v.$fs-lg;
+                text-transform: uppercase;
+                font-weight: v.$fw-bold;
+            }
         }
     }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 6px;
+        padding: 6px;
+        z-index: 1001;
+
+        .hamburger-line {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background-color: v.$white;
+            transition: transform v.$transition-fast, opacity v.$transition-fast;
+            border-radius: 2px;
+        }
+
+        @include m.mobile {
+            display: flex;
+        }
+
+        &.active {
+            .hamburger-line {
+                &:nth-child(1) {
+                    transform: translateY(8px) rotate(45deg);
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+body.menu-open {
+    overflow: hidden;
 }

@@ -1,6 +1,6 @@
 ---
 import data from "../data/general.json";
-const { name, contact } = data;
+const { name, contact, description } = data;
 ---
 
 <footer class="footer">
@@ -12,11 +12,11 @@ const { name, contact } = data;
 					{name}
 				</div>
 				<p class="brand-description">
-					Software Engineer especializado en la construcción de sistemas empresariales escalables y automatización de procesos.
+					{description}
 				</p>
 				<div class="brand-location">
 					<span class="material-symbols-outlined icon">location_on</span>
-					<span>Quito, Ecuador</span>
+					<span>{contact.location}</span>
 				</div>
 			</div>
 
@@ -47,14 +47,10 @@ const { name, contact } = data;
 				<h5>Comunicación</h5>
 				<ul>
 					<li>
-						<a href={`mailto:${contact.email}`}>
-							Email
-						</a>
+						<a href={`mailto:${contact.email}`}> Email </a>
 					</li>
 					<li>
-						<a href={contact.whatsapp} target="_blank">
-							WhatsApp Directo
-						</a>
+						<a href={contact.whatsapp} target="_blank"> WhatsApp Directo </a>
 					</li>
 				</ul>
 			</div>
@@ -62,11 +58,7 @@ const { name, contact } = data;
 
 		<!-- Bottom Copyright Row -->
 		<div class="footer-bottom">
-			<p class="copyright">&copy; {new Date().getFullYear()} {name.toUpperCase()}. CONSTRUIDO CON PRECISIÓN.</p>
-			<div class="bottom-links">
-				<a href="#">Política de Privacidad</a>
-				<a href="#">Términos Técnicos</a>
-			</div>
+			<p class="copyright">&copy; {new Date().getFullYear()} {name.toUpperCase()}.</p>
 		</div>
 	</div>
 </footer>

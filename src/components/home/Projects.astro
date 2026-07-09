@@ -10,7 +10,8 @@ const otherProjects = projects.slice(1);
 <section id="portfolio" class="portfolio">
 	<div class="container">
 		<div class="portfolio-header">
-			<h2 class="section-title">Trabajos Seleccionados</h2>
+			<div class="section-tag">Portafolio</div>
+			<h2 class="section-title">Soluciones Desarrolladas</h2>
 			<div class="header-line"></div>
 		</div>
 
@@ -24,25 +25,25 @@ const otherProjects = projects.slice(1);
 						</div>
 					</div>
 					<div class="project-details">
+						<div class="project-category-badge">{featuredProject.category}</div>
+						<h3 class="project-title">{featuredProject.title}</h3>
+						
+						<div class="project-problem-solution">
+							<div class="info-block problem-block">
+								<span class="block-title">Problema:</span>
+								<p>{featuredProject.problem}</p>
+							</div>
+							<div class="info-block solution-block">
+								<span class="block-title">Solución:</span>
+								<p>{featuredProject.solution}</p>
+							</div>
+						</div>
+
 						<div class="tech-tags">
 							{featuredProject.techStack.map((tech) => (
 								<span class="tag">{tech}</span>
 							))}
 						</div>
-						<h3 class="project-title">{featuredProject.title}</h3>
-						<p class="project-description">{featuredProject.description}</p>
-						
-						{featuredProject.features && (
-							<div class="project-features">
-								{featuredProject.features.map((feature) => (
-									<div class="feature-item">
-										<span class="material-symbols-outlined check-icon">verified</span>
-										<span class="feature-text">{feature}</span>
-									</div>
-								))}
-							</div>
-						)}
-						<a href="#" class="btn btn-outline btn-outline-white study-btn">Ver Detalles</a>
 					</div>
 				</div>
 			</div>
@@ -56,24 +57,25 @@ const otherProjects = projects.slice(1);
 							<Image src={project.image} alt={project.title} width={400} quality={80} />
 						</div>
 						<div class="project-card-content">
+							<div class="project-category-badge">{project.category}</div>
+							<h3>{project.title}</h3>
+							
+							<div class="project-problem-solution">
+								<div class="info-block problem-block">
+									<span class="block-title">Problema:</span>
+									<p>{project.problem}</p>
+								</div>
+								<div class="info-block solution-block">
+									<span class="block-title">Solución:</span>
+									<p>{project.solution}</p>
+								</div>
+							</div>
+
 							<div class="tech-tags">
 								{project.techStack.map((tech) => (
 									<span class="tag">{tech}</span>
 								))}
 							</div>
-							<h3>{project.title}</h3>
-							<p>{project.description}</p>
-							
-							{project.features && (
-								<div class="project-features-list">
-									{project.features.map((feature) => (
-										<div class="feature-item">
-											<span class="material-symbols-outlined check-icon">verified</span>
-											<span>{feature}</span>
-										</div>
-									))}
-								</div>
-							)}
 						</div>
 					</div>
 				))}

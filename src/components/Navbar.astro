@@ -7,12 +7,18 @@ import { withBase } from "../utils/paths";
 	<div class="container">
 		<a href={withBase("/")} class="logo">Abel<span>.</span></a>
 		<div class="nav-links">
+			<a href={withBase("/#services")}>Servicios</a>
+			<a href={withBase("/#portfolio")}>Portafolio</a>
 			<a href={withBase("/#about")}>Sobre Mí</a>
 			<a href={withBase("/#experience")}>Experiencia</a>
-			<a href={withBase("/#portfolio")}>Portafolio</a>
 			<a href={withBase("/blog")}>Blog</a>
 			<a href={withBase("/#contact")}>Contacto</a>
 		</div>
+		<button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+		</button>
 	</div>
 </nav>
 
@@ -24,5 +30,27 @@ import { withBase } from "../utils/paths";
             'scrolled',
             window.scrollY > 50
         );
+    });
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle?.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+        navLinks?.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        // Prevent body scroll when menu is active
+        document.body.classList.toggle('menu-open');
+    });
+
+    const links = navLinks?.querySelectorAll('a');
+    links?.forEach(link => {
+        link.addEventListener('click', () => {
+            menuToggle?.setAttribute('aria-expanded', 'false');
+            navLinks?.classList.remove('active');
+            menuToggle?.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
     });
 </script>

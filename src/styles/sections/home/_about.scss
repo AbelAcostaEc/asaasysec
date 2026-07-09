@@ -186,36 +186,43 @@
 				}
 			}
 
-			.skills-progress {
+			.languages-list {
 				display: flex;
 				flex-direction: column;
-				gap: v.$space-md;
+				gap: v.$space-sm;
 
-				.progress-item {
+				.language-item-card {
 					display: flex;
-					flex-direction: column;
-					gap: v.$space-xxs;
+					align-items: center;
+					gap: v.$space-sm;
+					padding: v.$space-sm v.$space-md;
+					background-color: rgba(v.$white, 0.01);
+					border: 1px solid rgba(v.$white, 0.05);
+					border-radius: v.$radius-md;
 
-					.progress-info {
-						display: flex;
-						justify-content: space-between;
-						font-size: v.$fs-xs;
-						font-weight: v.$fw-semibold;
-						color: v.$text-secondary;
-						text-transform: uppercase;
-						letter-spacing: v.$ls-wide;
+					.lang-icon {
+						color: v.$color-primary;
+						font-size: 20px;
 					}
 
-					.progress-bar {
-						height: 4px;
-						background-color: rgba(v.$white, 0.05);
-						border-radius: v.$radius-full;
-						overflow: hidden;
+					.lang-info {
+						display: flex;
+						flex-direction: column;
+						gap: 2px;
 
-						.fill {
-							height: 100%;
-							background-color: rgba(v.$color-primary, 0.5);
-							border-radius: v.$radius-full;
+						.lang-name {
+							font-family: v.$font-heading;
+							font-size: v.$fs-md;
+							font-weight: v.$fw-bold;
+							color: v.$text-primary;
+						}
+
+						.lang-level {
+							font-size: 11px;
+							color: v.$text-muted;
+							text-transform: uppercase;
+							letter-spacing: v.$ls-wide;
+							font-weight: v.$fw-semibold;
 						}
 					}
 				}

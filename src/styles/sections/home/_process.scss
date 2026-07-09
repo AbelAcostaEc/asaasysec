@@ -1,0 +1,97 @@
+@use "../../abstracts/variables" as v;
+@use "../../abstracts/mixins" as m;
+
+.process {
+	padding-block: v.$space-2xl;
+	position: relative;
+
+	.process-header {
+		text-align: center;
+		margin-bottom: v.$space-xl;
+
+		.section-tag {
+			font-family: v.$font-heading;
+			font-size: v.$fs-xs;
+			font-weight: v.$fw-semibold;
+			color: v.$color-primary;
+			text-transform: uppercase;
+			letter-spacing: v.$ls-wide;
+			margin-bottom: v.$space-sm;
+		}
+
+		.section-subtitle {
+			font-family: v.$font-heading;
+			font-size: v.$fs-h3;
+			font-weight: v.$fw-bold;
+			color: v.$text-primary;
+			margin-bottom: v.$space-xs;
+			text-transform: uppercase;
+			letter-spacing: v.$ls-wide;
+		}
+
+		.header-description {
+			color: v.$text-secondary;
+			font-size: v.$fs-md;
+			max-width: 600px;
+			margin-inline: auto;
+			line-height: v.$lh-normal;
+			opacity: 0.8;
+		}
+	}
+
+	.process-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: v.$space-md;
+
+		@media (min-width: v.$bp-mobile) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@media (min-width: v.$bp-tablet) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.process-card {
+		padding: 2.5rem 1.5rem;
+		transition: border-color v.$transition-base, transform v.$transition-base;
+
+		&:hover {
+			transform: translateY(-4px);
+			border-color: rgba(v.$color-primary, 0.3);
+
+			.step-num {
+				color: v.$color-primary-hover;
+				opacity: 1;
+				text-shadow: 0 0 15px rgba(v.$color-primary, 0.2);
+			}
+		}
+
+		.step-num {
+			font-family: v.$font-heading;
+			font-size: 3rem;
+			font-weight: v.$fw-extrabold;
+			color: v.$color-primary;
+			opacity: 0.7;
+			line-height: 1;
+			margin-bottom: v.$space-sm;
+			transition: color v.$transition-base, opacity v.$transition-base;
+		}
+
+		h3 {
+			font-family: v.$font-heading;
+			font-size: v.$fs-lg;
+			font-weight: v.$fw-bold;
+			color: v.$white;
+			margin-bottom: v.$space-xs;
+		}
+
+		p {
+			color: v.$text-secondary;
+			font-size: v.$fs-sm;
+			line-height: v.$lh-normal;
+			opacity: 0.8;
+		}
+	}
+}

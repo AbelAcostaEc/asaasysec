@@ -11,6 +11,16 @@
 		gap: v.$space-md;
 		margin-bottom: v.$space-xl;
 
+		.section-tag {
+			font-family: v.$font-heading;
+			font-size: v.$fs-xs;
+			font-weight: v.$fw-semibold;
+			color: v.$color-primary;
+			text-transform: uppercase;
+			letter-spacing: v.$ls-wide;
+			margin-bottom: 2px;
+		}
+
 		.section-title {
 			margin-bottom: 0;
 			text-align: left;
@@ -33,7 +43,94 @@
 		}
 	}
 
-	// Featured Project Card
+	// Project Badges (used in both featured and standard cards)
+	.project-category-badge {
+		font-family: v.$font-heading;
+		font-size: 10px;
+		font-weight: v.$fw-bold;
+		color: v.$color-primary;
+		border: 1px solid rgba(v.$color-primary, 0.2);
+		padding: 4px 10px;
+		border-radius: v.$radius-full;
+		text-transform: uppercase;
+		letter-spacing: v.$ls-wide;
+		width: fit-content;
+	}
+
+	// Problem and Solution Blocks
+	.project-problem-solution {
+		display: flex;
+		flex-direction: column;
+		gap: v.$space-xs;
+
+		.info-block {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+
+			.block-title {
+				font-family: v.$font-heading;
+				font-size: 10px;
+				font-weight: v.$fw-bold;
+				text-transform: uppercase;
+				letter-spacing: v.$ls-wide;
+			}
+
+			p {
+				font-size: v.$fs-sm;
+				line-height: v.$lh-normal;
+			}
+		}
+
+		.problem-block {
+			.block-title {
+				color: v.$text-disabled;
+			}
+			p {
+				color: v.$text-secondary;
+				opacity: 0.8;
+			}
+		}
+
+		.solution-block {
+			.block-title {
+				color: v.$color-primary;
+			}
+			p {
+				color: v.$white;
+				opacity: 0.95;
+			}
+		}
+	}
+
+	// Tech tags list
+	.tech-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: v.$space-xxs;
+
+		.tag {
+			font-size: 10px;
+			font-weight: v.$fw-bold;
+			color: v.$color-primary;
+			background-color: rgba(v.$color-primary, 0.1);
+			padding: 4px 8px;
+			border-radius: v.$radius-sm;
+			text-transform: uppercase;
+		}
+	}
+
+	// Button styling
+	.study-btn {
+		width: 100%;
+		text-align: center;
+		padding-block: v.$space-sm;
+		text-transform: uppercase;
+		font-weight: v.$fw-bold;
+		letter-spacing: v.$ls-wide;
+	}
+
+	// Featured Project Card (Main Project)
 	.featured-project-card {
 		overflow: hidden;
 		margin-bottom: v.$space-xl;
@@ -55,9 +152,11 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			border-bottom: 1px solid rgba(v.$white, 0.05);
 
 			@media (min-width: v.$bp-tablet) {
 				padding: v.$space-xl;
+				border-bottom: none;
 				border-right: 1px solid rgba(v.$white, 0.05);
 			}
 
@@ -100,83 +199,35 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			background-color: rgba(v.$bg-secondary, 0.3);
+			gap: v.$space-md;
+			background-color: rgba(v.$bg-secondary, 0.2);
 
 			@media (min-width: v.$bp-tablet) {
 				padding: v.$space-xl;
 			}
 
-			.tech-tags {
-				display: flex;
-				flex-wrap: wrap;
-				gap: v.$space-xxs;
-				margin-bottom: v.$space-sm;
-
-				.tag {
-					font-size: 10px;
-					font-weight: v.$fw-bold;
-					color: v.$color-primary;
-					background-color: rgba(v.$color-primary, 0.1);
-					padding: 4px 8px;
-					border-radius: v.$radius-sm;
-					text-transform: uppercase;
-					letter-spacing: v.$ls-tight;
-				}
-			}
-
 			.project-title {
 				font-family: v.$font-heading;
-				font-size: v.$fs-h4;
+				font-size: v.$fs-h3;
 				color: v.$text-primary;
-				margin-bottom: v.$space-xs;
-			}
+				font-weight: v.$fw-bold;
+				margin-bottom: v.$space-xxs;
 
-			.project-description {
-				color: v.$text-secondary;
-				font-size: v.$fs-md;
-				line-height: v.$lh-normal;
-				margin-bottom: v.$space-md;
-			}
-
-			.project-features {
-				display: flex;
-				flex-direction: column;
-				gap: v.$space-xs;
-				margin-bottom: v.$space-lg;
-
-				.feature-item {
-					display: flex;
-					align-items: center;
-					gap: v.$space-xs;
-
-					.check-icon {
-						color: v.$color-primary;
-						font-size: 18px;
-					}
-
-					.feature-text {
-						font-family: v.$font-heading;
-						font-size: v.$fs-xs;
-						font-weight: v.$fw-semibold;
-						color: v.$text-secondary;
-						text-transform: uppercase;
-						letter-spacing: v.$ls-wide;
-					}
+				@include m.mobile {
+					font-size: v.$fs-h4;
 				}
 			}
 
 			.study-btn {
-				width: 100%;
-				text-align: center;
-				padding-block: v.$space-sm;
-				text-transform: uppercase;
-				font-weight: v.$fw-bold;
-				letter-spacing: v.$ls-wide;
+				@media (min-width: v.$bp-mobile) {
+					width: fit-content;
+					padding-inline: v.$space-lg;
+				}
 			}
 		}
 	}
 
-	// Other Projects Grid
+	// Other Projects Grid (Secondary Projects)
 	.other-projects-grid {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -218,59 +269,14 @@
 			.project-card-content {
 				display: flex;
 				flex-direction: column;
-				gap: v.$space-xs;
-
-				.tech-tags {
-					display: flex;
-					flex-wrap: wrap;
-					gap: v.$space-xxs;
-					margin-bottom: v.$space-xxs;
-
-					.tag {
-						font-size: 10px;
-						font-weight: v.$fw-bold;
-						color: rgba(v.$color-primary, 0.8);
-						background-color: rgba(v.$color-primary, 0.05);
-						padding: 2px 6px;
-						border-radius: v.$radius-sm;
-						text-transform: uppercase;
-					}
-				}
+				gap: v.$space-sm;
 
 				h3 {
 					font-family: v.$font-heading;
 					font-size: v.$fs-h4;
 					color: v.$text-primary;
+					font-weight: v.$fw-bold;
 					transition: color v.$transition-base;
-				}
-
-				p {
-					color: v.$text-secondary;
-					font-size: v.$fs-sm;
-					line-height: v.$lh-normal;
-					opacity: 0.8;
-					margin-bottom: v.$space-xs;
-				}
-
-				.project-features-list {
-					display: flex;
-					flex-direction: column;
-					gap: v.$space-xxs;
-					border-top: 1px solid rgba(v.$white, 0.05);
-					padding-top: v.$space-sm;
-
-					.feature-item {
-						display: flex;
-						align-items: center;
-						gap: v.$space-xxs;
-						font-size: v.$fs-xs;
-						color: v.$text-secondary;
-
-						.check-icon {
-							color: v.$color-primary;
-							font-size: 14px;
-						}
-					}
 				}
 			}
 		}

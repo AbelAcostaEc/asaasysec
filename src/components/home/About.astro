@@ -55,38 +55,27 @@ const { about, languages, skills } = data;
 								<span class="material-symbols-outlined icon">language</span>
 							</div>
 							<div>
-								<h3>Inglés A2</h3>
-								<p class="subtitle">Español (Nativo) | Inglés A2 (Comprensión Técnica)</p>
+								<h3>Competencia Lingüística</h3>
+								<p class="subtitle">Idiomas dominados y nivel técnico</p>
 							</div>
 						</div>
-						<div class="skills-progress">
-							<div class="progress-item">
-								<div class="progress-info">
-									<span>Lectura Técnica</span>
-									<span>80%</span>
-								</div>
-								<div class="progress-bar">
-									<div class="fill" style="width: 80%"></div>
-								</div>
-							</div>
-							<div class="progress-item">
-								<div class="progress-info">
-									<span>Conversación</span>
-									<span>50%</span>
-								</div>
-								<div class="progress-bar">
-									<div class="fill" style="width: 50%"></div>
-								</div>
-							</div>
-							<div class="progress-item">
-								<div class="progress-info">
-									<span>Escucha</span>
-									<span>50%</span>
-								</div>
-								<div class="progress-bar">
-									<div class="fill" style="width: 50%"></div>
-								</div>
-							</div>
+						<div class="languages-list">
+							{
+								languages?.map((lang) => {
+									const parts = lang.match(/([^(]+)\s*(?:\(([^)]+)\))?/);
+									const name = parts ? parts[1].trim() : lang;
+									const level = parts && parts[2] ? parts[2].trim() : "";
+									return (
+										<div class="language-item-card">
+											<span class="material-symbols-outlined lang-icon">translate</span>
+											<div class="lang-info">
+												<span class="lang-name">{name}</span>
+												{level && <span class="lang-level">{level}</span>}
+											</div>
+										</div>
+									);
+								})
+							}
 						</div>
 					</div>
 				</div>
@@ -95,7 +84,7 @@ const { about, languages, skills } = data;
 					<div class="glass-card cta-card">
 						<div class="glow-overlay"></div>
 						<h3>¿Hablamos de arquitectura?</h3>
-						<p>Disponible para consultoría técnica o integraciones en sistemas críticos empresariales.</p>
+						<p>Disponible para colaborar en el desarrollo de soluciones y automatizaciones.</p>
 						<a href="#contact" class="btn btn-primary">Contáctame</a>
 					</div>
 				</div>

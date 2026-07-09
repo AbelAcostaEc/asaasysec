@@ -1,0 +1,37 @@
+---
+import data from "../../data/general.json";
+const { services } = data;
+
+// Map icons to the services
+const icons = [
+	"dns",            // Sistemas Empresariales
+	"language",       // Páginas Web Profesionales
+	"devices",        // Aplicaciones Web y Móviles
+	"settings_suggest" // Automatización de Procesos
+];
+---
+
+<!-- Services Section -->
+<section id="services" class="services">
+	<div class="container">
+		<div class="services-header">
+			<div class="section-tag">Servicios</div>
+			<h2 class="section-subtitle">Soluciones Digitales a Medida</h2>
+			<p class="header-description">Ayudo a empresas y negocios a digitalizar sus procesos mediante herramientas tecnológicas personalizadas.</p>
+		</div>
+
+		<div class="services-grid">
+			{
+				services?.map((service, index) => (
+					<div class="glass-card service-card">
+						<div class="service-icon-wrapper">
+							<span class="material-symbols-outlined icon">{icons[index] || "settings"}</span>
+						</div>
+						<h3>{service.title}</h3>
+						<p>{service.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

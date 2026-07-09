@@ -1,59 +1,123 @@
 {
 	"name": "Abel Acosta",
+
 	"title": "Tecnólogo en Análisis de Sistemas",
+
 	"role": "Desarrollador Full Stack",
-	"description": "Desarrollador Full Stack especializado en crear aplicaciones web y móviles funcionales, combinando código eficiente con una experiencia de usuario excepcional.",
+
+	"description": "Desarrollador Full Stack enfocado en crear soluciones digitales para empresas y negocios. Desarrollo sistemas administrativos, aplicaciones web y plataformas personalizadas utilizando tecnologías modernas para mejorar procesos y aportar valor real.",
 
 	"about": {
-		"paragraphs": ["Soy un desarrollador apasionado por la tecnología y la innovación. Busco aportar soluciones prácticas utilizando tecnologías modernas como Laravel, Angular y herramientas de automatización como N8N.", "Me enfoco en el liderazgo técnico, la comunicación efectiva y la resolución de problemas para entregar productos de alta calidad."]
+		"paragraphs": ["Soy un Desarrollador Full Stack apasionado por la tecnología y la innovación, con experiencia en el desarrollo de sistemas empresariales, aplicaciones web y soluciones digitales orientadas a resolver necesidades reales.", "Me gusta comprender los procesos del negocio antes de crear una solución, aplicando buenas prácticas de desarrollo, aprendizaje constante y tecnologías modernas para construir productos funcionales, mantenibles y escalables."]
 	},
 
-	"languages": ["Español (Nativo)", "Inglés (A2)"],
 	"metrics": [
-		{ "value": "04", "suffix": "+", "label": "Años Experiencia" },
-		{ "value": "12", "suffix": "+", "label": "Apps Empresariales" },
-		{ "value": "25", "suffix": "+", "label": "APIs Rest" },
-		{ "value": "50", "suffix": "+", "label": "Flujos Autom." }
+		{
+			"value": "3+",
+			"suffix": "",
+			"label": "Años Experiencia Profesional"
+		},
+		{
+			"value": "10+",
+			"suffix": "",
+			"label": "Proyectos Desarrollados"
+		},
+		{
+			"value": "Full Stack",
+			"suffix": "",
+			"label": "Web + Mobile"
+		},
+		{
+			"value": "100%",
+			"suffix": "",
+			"label": "Compromiso con cada solución"
+		}
 	],
-	"main_skills": ["PHP (Laravel)", "Livewire", "Angular", "N8N", "Ionic", "Docker"],
+
+	"languages": ["Español (Nativo)", "Inglés (A2)"],
+
+	"main_skills": ["PHP (Laravel)", "Angular", "Livewire", "Ionic", "Docker", "Automatización con N8N"],
+
+	"services": [
+		{
+			"title": "Sistemas Empresariales",
+			"description": "Desarrollo de sistemas personalizados para gestionar procesos como ventas, inventarios, clientes, usuarios y operaciones internas."
+		},
+		{
+			"title": "Páginas Web Profesionales",
+			"description": "Creación de sitios web modernos para negocios que buscan mejorar su presencia digital y conectar con sus clientes."
+		},
+		{
+			"title": "Aplicaciones Web y Móviles",
+			"description": "Desarrollo de aplicaciones adaptadas a las necesidades del proyecto utilizando tecnologías modernas."
+		},
+		{
+			"title": "Automatización de Procesos",
+			"description": "Implementación de automatizaciones para reducir tareas repetitivas y mejorar la productividad mediante herramientas como N8N."
+		}
+	],
 
 	"skills": [
 		{
-			"category": "Backend & Autom.",
+			"category": "Backend & APIs",
 			"icon": "terminal",
-			"items": ["PHP (Laravel)", "Livewire", "N8N Workflows", "REST APIs"]
+			"items": ["PHP", "Laravel", "Livewire", "REST APIs", "Node.js"]
 		},
+
 		{
-			"category": "Frontend",
+			"category": "Frontend & Mobile",
 			"icon": "layers",
-			"items": ["Angular", "Ionic", "TypeScript", "CSS3 / Sass"]
+			"items": ["JavaScript", "TypeScript", "Angular", "Ionic", "Astro", "Tailwind CSS", "Sass", "Bootstrap"]
 		},
+
 		{
-			"category": "Databases & DevOps",
+			"category": "Bases de Datos & Herramientas",
 			"icon": "database",
-			"items": ["MySQL / MariaDB", "PostgreSQL", "MongoDB", "Docker"]
+			"items": ["MySQL", "PostgreSQL", "MongoDB", "Git", "Docker", "Linux"]
 		},
+
 		{
-			"category": "Soft Skills",
+			"category": "Forma de Trabajo",
 			"icon": "verified",
-			"items": ["Liderazgo Técnico", "Comunicación", "Resolución de Problemas"]
+			"items": ["Análisis de requerimientos", "Resolución de problemas", "Buenas prácticas de desarrollo", "Aprendizaje continuo"]
 		}
 	],
 
 	"projects": [
 		{
+			"name": "Sistema POS para pequeños negocios",
+			"description": "Sistema de gestión comercial desarrollado para digitalizar procesos de ventas, inventario y administración en pequeños negocios.",
+
+			"technologies": ["Laravel", "Livewire", "MySQL", "Bootstrap"],
+
+			"features": ["Gestión de productos", "Categorías", "Clientes", "Ventas", "Inventario", "Usuarios", "Roles y permisos", "Reportes"]
+		},
+
+		{
+			"name": "Seolab",
+			"description": "Plataforma en desarrollo orientada al análisis SEO de sitios web y generación de información útil para mejorar la presencia digital.",
+
+			"technologies": ["Laravel", "Python", "Docker", "APIs"]
+		},
+
+		{
 			"name": "Proyecto Bellas Artes",
-			"description": "Tienda Online realizada en WordPress.",
+			"description": "Tienda online desarrollada para un negocio utilizando herramientas CMS enfocadas en facilidad de administración.",
+
 			"technologies": ["WordPress", "Elementor"]
 		},
+
 		{
-			"name": "Proyecto Artesanías",
-			"description": "Página informativa sobre los productos que ofrece el negocio.",
+			"name": "Artesanías Rinoceronte",
+			"description": "Página web informativa creada para mostrar productos y fortalecer la presencia digital del negocio.",
+
 			"technologies": ["HTML", "CSS", "JavaScript"]
 		},
+
 		{
 			"name": "Manualidades",
-			"description": "Página informativa de negocio de manualidades.",
+			"description": "Sitio web informativo desarrollado para un negocio de manualidades.",
+
 			"technologies": ["HTML", "CSS", "JavaScript", "Bootstrap"]
 		}
 	],
@@ -63,45 +127,86 @@
 			"position": "Desarrollador Full Stack",
 			"company": "GRAMEDIA",
 			"period": "2023 - Actualidad",
-			"responsibilities": ["Desarrollo integral de aplicaciones web, móviles y de escritorio.", "Implementación de soluciones E-commerce y portales corporativos.", "Automatización de flujos con N8N.", "Gestión de bases de datos SQL y NoSQL."]
+
+			"responsibilities": ["Desarrollo y mantenimiento de aplicaciones web empresariales.", "Creación de módulos utilizando Laravel, Angular y Livewire.", "Desarrollo de soluciones móviles utilizando Ionic.", "Creación de aplicaciones de escritorio con Electron.", "Automatización de procesos mediante N8N.", "Gestión e integración con bases de datos SQL y NoSQL."]
 		},
+
 		{
 			"position": "Desarrollador / QA (Pasantía)",
 			"company": "EASYSOFT S.A.",
 			"period": "2021 - 2022",
-			"responsibilities": ["Desarrollo de módulos bajo estándares ISO.", "Gestión de pasos a producción.", "Documentación técnica y gestión de incidentes."]
+
+			"responsibilities": ["Desarrollo y mantenimiento de módulos de software.", "Apoyo en pruebas de calidad y validación de funcionalidades.", "Documentación técnica y gestión de incidencias.", "Apoyo en procesos de despliegue."]
+		}
+	],
+
+	"trabajos": [
+		{
+			"titulo": "Sistema POS para pequeños negocios",
+
+			"descripcion": "Sistema administrativo desarrollado para gestionar ventas, inventario y operaciones comerciales.",
+
+			"tecnologias": ["Laravel", "Livewire", "MySQL"],
+
+			"imagen": "build/img/POS.webp",
+
+			"url": "#"
+		},
+
+		{
+			"titulo": "Seolab",
+
+			"descripcion": "Plataforma en desarrollo para análisis SEO y mejora de presencia digital.",
+
+			"tecnologias": ["Laravel", "Python", "Docker"],
+
+			"imagen": "build/img/Seolab.webp",
+
+			"url": "#"
+		},
+
+		{
+			"titulo": "Artesanías Rinoceronte",
+
+			"descripcion": "Página web creada para mostrar productos y mejorar la presencia online del negocio.",
+
+			"tecnologias": ["HTML", "CSS", "JavaScript"],
+
+			"imagen": "build/img/ArtesaniasRinoceronte.webp",
+
+			"url": "https://artesaniasrinoceronte.netlify.app"
+		},
+
+		{
+			"titulo": "Manualidades",
+
+			"descripcion": "Página informativa desarrollada para un negocio de manualidades.",
+
+			"tecnologias": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+
+			"imagen": "build/img/Manualidades.webp",
+
+			"url": "https://manualidadesasa.netlify.app"
 		}
 	],
 
 	"contact": {
 		"phone": "+593984906571",
+
 		"email": "abel.2833@hotmail.com",
+
 		"location": "Quito, Ecuador",
+
 		"github": "https://github.com/AbelAcostaEc",
+
 		"linkedin": "https://www.linkedin.com/in/abel-acosta-asaa/",
+
 		"whatsapp": "https://wa.me/593984906571"
 	},
-	"trabajos": [
-		{
-			"titulo": "Proyecto Bellas Artes",
-			"descripcion": "Tienda Online realizada en WordPress.",
-			"tecnologias": ["WordPress", "Elementor"],
-			"imagen": "build/img/BellasArtes.webp",
-			"url": "#"
-		},
-		{
-			"titulo": "Proyecto Artesanias",
-			"descripcion": "Página informativa sobre los productos que ofrece el negocio,",
-			"tecnologias": ["HTML", "CSS", "JavaScript"],
-			"imagen": "build/img/ArtesaniasRinoceronte.webp",
-			"url": "https://artesaniasrinoceronte.netlify.app"
-		},
-		{
-			"titulo": "Manualidades",
-			"descripcion": " Pagina informativa de negocio de manualidades",
-			"tecnologias": ["HTML", "CSS", "JavaScript", "Bootstrap"],
-			"imagen": "build/img/Manualidades.webp",
-			"url": "https://manualidadesasa.netlify.app"
-		}
-	]
+
+	"call_to_action": {
+		"title": "¿Tienes una idea o necesitas mejorar un proceso?",
+
+		"description": "Puedo ayudarte a transformar tus necesidades en una solución digital funcional, moderna y adaptada a tu negocio."
+	}
 }

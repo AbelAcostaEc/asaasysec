@@ -1,0 +1,47 @@
+---
+const steps = [
+	{
+		num: "01",
+		title: "Analizar",
+		description: "Comprender necesidades y procesos del negocio antes de escribir código."
+	},
+	{
+		num: "02",
+		title: "Diseñar",
+		description: "Crear una solución técnica robusta y adecuada a la realidad del negocio."
+	},
+	{
+		num: "03",
+		title: "Desarrollar",
+		description: "Construir software funcional, limpio y mantenible aplicando buenas prácticas."
+	},
+	{
+		num: "04",
+		title: "Mejorar",
+		description: "Optimizar el rendimiento, corregir detalles y agregar nuevas funciones a futuro."
+	}
+];
+---
+
+<!-- Process Section -->
+<section id="process" class="process">
+	<div class="container">
+		<div class="process-header">
+			<div class="section-tag">Metodología</div>
+			<h2 class="section-subtitle">Mi Proceso de Trabajo</h2>
+			<p class="header-description">Diseño y desarrollo soluciones siguiendo una metodología estructurada para asegurar el éxito del proyecto.</p>
+		</div>
+
+		<div class="process-grid">
+			{
+				steps.map((step) => (
+					<div class="glass-card process-card">
+						<div class="step-num">{step.num}</div>
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
