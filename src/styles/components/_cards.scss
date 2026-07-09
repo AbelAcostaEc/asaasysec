@@ -12,3 +12,25 @@
         border-color: rgba(v.$color-primary, 0.3);
     }
 }
+
+.glass-card {
+    background: rgba(v.$bg-primary, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(v.$text-disabled, 0.15);
+    border-radius: v.$radius-lg;
+    transition: border-color v.$transition-base, transform v.$transition-base;
+
+    &:hover {
+        border-color: rgba(v.$color-primary, 0.3);
+    }
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, v.$white 0%, v.$color-primary 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}

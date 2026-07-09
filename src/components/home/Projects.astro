@@ -1,33 +1,83 @@
 ---
 import { Image } from "astro:assets";
 import { projects } from "../../data/projects.js";
+
+const featuredProject = projects[0];
+const otherProjects = projects.slice(1);
 ---
 
 <!-- Portfolio -->
 <section id="portfolio" class="portfolio">
 	<div class="container">
-		<h2 class="section-title">Proyectos <span>Realizados</span></h2>
-		<div class="projects-grid">
-			{
-				projects.map((project) => {
-					return (
-						<div class="project-card">
-							<div class="project-img">
-								<Image src={project.image} alt={project.title} width={400} quality={80} loading="eager" />
+		<div class="portfolio-header">
+			<h2 class="section-title">Trabajos Seleccionados</h2>
+			<div class="header-line"></div>
+		</div>
+
+		{featuredProject && (
+			<div class="glass-card featured-project-card">
+				<div class="featured-grid">
+					<div class="project-image-wrapper">
+						<div class="technical-grid-overlay"></div>
+						<div class="img-container">
+							<Image src={featuredProject.image} alt={featuredProject.title} width={800} quality={85} loading="eager" />
+						</div>
+					</div>
+					<div class="project-details">
+						<div class="tech-tags">
+							{featuredProject.techStack.map((tech) => (
+								<span class="tag">{tech}</span>
+							))}
+						</div>
+						<h3 class="project-title">{featuredProject.title}</h3>
+						<p class="project-description">{featuredProject.description}</p>
+						
+						{featuredProject.features && (
+							<div class="project-features">
+								{featuredProject.features.map((feature) => (
+									<div class="feature-item">
+										<span class="material-symbols-outlined check-icon">verified</span>
+										<span class="feature-text">{feature}</span>
+									</div>
+								))}
 							</div>
-							<div class="project-info">
-								<h3>{project.title}</h3>
-								<p>{project.description}</p>
-								<div class="tech-stack">
-									{project.techStack.map((tech) => (
-										<span>{tech}</span>
+						)}
+						<a href="#" class="btn btn-outline btn-outline-white study-btn">Ver Detalles</a>
+					</div>
+				</div>
+			</div>
+		)}
+
+		{otherProjects.length > 0 && (
+			<div class="other-projects-grid">
+				{otherProjects.map((project) => (
+					<div class="glass-card project-card">
+						<div class="project-card-image">
+							<Image src={project.image} alt={project.title} width={400} quality={80} />
+						</div>
+						<div class="project-card-content">
+							<div class="tech-tags">
+								{project.techStack.map((tech) => (
+									<span class="tag">{tech}</span>
+								))}
+							</div>
+							<h3>{project.title}</h3>
+							<p>{project.description}</p>
+							
+							{project.features && (
+								<div class="project-features-list">
+									{project.features.map((feature) => (
+										<div class="feature-item">
+											<span class="material-symbols-outlined check-icon">verified</span>
+											<span>{feature}</span>
+										</div>
 									))}
 								</div>
-							</div>
+							)}
 						</div>
-					);
-				})
-			}
-		</div>
+					</div>
+				))}
+			</div>
+		)}
 	</div>
 </section>

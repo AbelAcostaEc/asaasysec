@@ -1,75 +1,167 @@
 @use '../../abstracts/variables' as v;
 @use '../../abstracts/mixins' as m;
 
-// Contact
+// Contact Section Styles
 .contact {
-    text-align: center;
+	padding-block: v.$space-2xl;
+	position: relative;
 
-    .contact-content {
-        max-width: 600px;
-        margin: 0 auto;
-        @include m.glass-effect;
-        padding: 3rem;
-        border-radius: 20px;
+	.contact-wrapper {
+		max-width: 800px;
+		margin: 0 auto;
+	}
 
-        p {
-            color: v.$text-muted;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
+	.contact-card {
+		padding: 3rem 1.5rem;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		border-color: rgba(v.$color-primary, 0.15);
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
+		@media (min-width: v.$bp-mobile) {
+			padding: 4rem 3rem;
+		}
 
-            a {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                color: v.$white;
-                font-weight: 500;
+		.glow-overlay {
+			position: absolute;
+			inset: 0;
+			background: radial-gradient(circle at center, rgba(v.$color-primary, 0.05) 0%, transparent 70%);
+			pointer-events: none;
+		}
 
-                i {
-                    color: v.$color-primary;
-                    font-size: 1.2rem;
-                }
+		.section-subtitle {
+			font-family: v.$font-heading;
+			font-size: v.$fs-xs;
+			font-weight: v.$fw-semibold;
+			color: v.$color-primary;
+			text-transform: uppercase;
+			letter-spacing: v.$ls-wide;
+			margin-bottom: v.$space-sm;
+		}
 
-                svg {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                    fill: v.$color-primary;
-                }
+		h1.text-gradient {
+			font-family: v.$font-heading;
+			font-size: 3rem;
+			font-weight: v.$fw-extrabold;
+			line-height: v.$lh-tight;
+			margin-bottom: v.$space-md;
 
-                &:hover {
-                    color: v.$color-primary;
-                }
-            }
-        }
+			@include m.mobile {
+				font-size: 2rem;
+			}
+		}
 
-        .social-links{
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
+		.contact-description {
+			font-size: v.$fs-lg;
+			color: v.$text-secondary;
+			line-height: v.$lh-normal;
+			max-width: 600px;
+			margin: 0 auto v.$space-xl;
 
-            .icon-link {
-                text-decoration: none;
-                color: v.$white;
-                font-size: 1.5rem;
-                transition: color 0.3s;
+			@include m.mobile {
+				font-size: v.$fs-md;
+			}
+		}
 
-                svg {
-                    width: 1.5rem;
-                    height: 1.5rem;
-                }
+		.contact-links-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: v.$space-md;
+			margin-bottom: v.$space-xl;
 
-                &:hover {
-                    color: v.$color-primary;
-                }
+			@media (min-width: v.$bp-tablet) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
 
-            }
-        }
-    }
+		.contact-link-item {
+			display: flex;
+			align-items: center;
+			gap: v.$space-sm;
+			padding: v.$space-sm v.$space-md;
+			background-color: rgba(v.$white, 0.01);
+			border: 1px solid rgba(v.$white, 0.05);
+			border-radius: v.$radius-md;
+			text-align: left;
+			transition: border-color v.$transition-base, background-color v.$transition-base, transform v.$transition-base;
+
+			.icon {
+				color: v.$text-secondary;
+				font-size: 24px;
+				transition: color v.$transition-base;
+			}
+
+			.link-details {
+				display: flex;
+				flex-direction: column;
+				gap: 2px;
+				overflow: hidden;
+
+				.label {
+					font-family: v.$font-heading;
+					font-size: 9px;
+					font-weight: v.$fw-bold;
+					text-transform: uppercase;
+					color: v.$text-muted;
+					letter-spacing: v.$ls-wide;
+				}
+
+				.value {
+					font-size: v.$fs-sm;
+					color: v.$white;
+					font-weight: v.$fw-semibold;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+			}
+
+			&:not(.no-link) {
+				cursor: pointer;
+
+				&:hover {
+					border-color: rgba(v.$color-primary, 0.3);
+					background-color: rgba(v.$color-primary, 0.05);
+					transform: translateY(-2px);
+
+					.icon {
+						color: v.$color-primary;
+					}
+				}
+			}
+
+			&.no-link {
+				cursor: default;
+			}
+		}
+
+		.social-links-row {
+			display: flex;
+			justify-content: center;
+			gap: v.$space-md;
+
+			.social-icon {
+				width: 48px;
+				height: 48px;
+				border-radius: 50%;
+				border: 1px solid rgba(v.$white, 0.05);
+				background-color: rgba(v.$white, 0.01);
+				@include m.flex-center;
+				color: v.$text-secondary;
+				transition: border-color v.$transition-base, background-color v.$transition-base, color v.$transition-base, transform v.$transition-base;
+
+				svg {
+					width: 20px;
+					height: 20px;
+				}
+
+				&:hover {
+					color: v.$color-primary;
+					border-color: rgba(v.$color-primary, 0.3);
+					background-color: rgba(v.$color-primary, 0.05);
+					transform: translateY(-3px);
+				}
+			}
+		}
+	}
 }

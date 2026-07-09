@@ -1,53 +1,268 @@
 @use "../../abstracts/variables" as v;
 @use "../../abstracts/mixins" as m;
 
-// About & Skills
+// About Section & Stack & Languages
 .about {
-	.about-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
+	padding-block: v.$space-2xl;
+	position: relative;
 
-		@include m.mobile {
-			grid-template-columns: 1fr;
+	.section-tag {
+		font-family: v.$font-heading;
+		font-size: v.$fs-xs;
+		font-weight: v.$fw-semibold;
+		color: v.$color-primary;
+		text-transform: uppercase;
+		letter-spacing: v.$ls-wide;
+		margin-bottom: v.$space-sm;
+	}
+
+	.section-subtitle {
+		font-family: v.$font-heading;
+		font-size: v.$fs-h3;
+		font-weight: v.$fw-bold;
+		color: v.$text-primary;
+		margin-bottom: v.$space-xs;
+		text-transform: uppercase;
+		letter-spacing: v.$ls-wide;
+	}
+
+	// About Intro
+	.about-intro {
+		max-width: 800px;
+		margin-bottom: v.$space-2xl;
+
+		h1 {
+			font-family: v.$font-heading;
+			font-size: 3.5rem;
+			font-weight: v.$fw-extrabold;
+			line-height: v.$lh-tight;
+			margin-bottom: v.$space-md;
+
+			@include m.mobile {
+				font-size: 2.25rem;
+			}
 		}
 
-		.about-text {
+		.intro-text {
 			p {
-				margin-bottom: 1rem;
+				font-size: v.$fs-lg;
+				color: v.$text-secondary;
+				line-height: v.$lh-relaxed;
+				margin-bottom: v.$space-sm;
+
+				@include m.mobile {
+					font-size: v.$fs-md;
+				}
 			}
 		}
 	}
 
-	.skills-wrapper {
-		h3 {
-			font-family: v.$font-heading;
-			margin-bottom: 1.5rem;
-			color: v.$white;
+	// Stack Dashboard
+	.stack-dashboard {
+		margin-bottom: v.$space-2xl;
+
+		.stack-header {
+			text-align: center;
+			margin-bottom: v.$space-xl;
+
+			p {
+				color: v.$text-secondary;
+				font-size: v.$fs-md;
+			}
 		}
 
-		.skill-category {
-			margin-bottom: 2rem;
+		.stack-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: v.$space-md;
+
+			@media (min-width: v.$bp-mobile) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (min-width: v.$bp-tablet) {
+				grid-template-columns: repeat(4, 1fr);
+			}
 		}
 
-		.skill-tags {
-			display: flex;
-			flex-wrap: wrap;
-			gap: 0.8rem;
+		.stack-card {
+			padding: v.$space-lg;
 
-			span {
-				background: rgba(v.$color-primary, 0.1);
-				color: v.$color-primary;
-				padding: 8px 16px;
-				border-radius: 20px;
-				font-size: 0.9rem;
-				border: 1px solid rgba(v.$color-primary, 0.2);
-				transition: all 0.3s ease;
+			.card-header {
+				display: flex;
+				align-items: center;
+				gap: v.$space-xs;
+				margin-bottom: v.$space-lg;
 
-				&:hover {
-					background: v.$color-primary;
-					color: v.$white;
+				.icon {
+					color: v.$color-primary;
+					font-size: 24px;
 				}
+
+				h3 {
+					font-family: v.$font-heading;
+					font-size: v.$fs-md;
+					font-weight: v.$fw-bold;
+					color: v.$text-primary;
+					text-transform: uppercase;
+					letter-spacing: v.$ls-wide;
+				}
+			}
+
+			.skill-list {
+				display: flex;
+				flex-direction: column;
+				gap: v.$space-xs;
+
+				li {
+					display: flex;
+					align-items: center;
+					gap: v.$space-xs;
+					font-size: v.$fs-sm;
+					color: v.$text-secondary;
+					text-transform: uppercase;
+					font-weight: v.$fw-medium;
+
+					.dot {
+						display: inline-block;
+						width: 6px;
+						height: 6px;
+						background-color: v.$color-primary;
+						border-radius: 50%;
+						box-shadow: 0 0 8px v.$color-primary;
+					}
+				}
+			}
+		}
+	}
+
+	// Proficiency Section
+	.proficiency-section {
+		.proficiency-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: v.$space-xl;
+
+			@media (min-width: v.$bp-tablet) {
+				grid-template-columns: 3fr 2fr;
+			}
+		}
+
+		.language-card {
+			padding: v.$space-lg;
+
+			.card-header {
+				display: flex;
+				align-items: center;
+				gap: v.$space-md;
+				margin-bottom: v.$space-xl;
+
+				.icon-wrapper {
+					width: 56px;
+					height: 56px;
+					border-radius: 50%;
+					background-color: rgba(v.$color-primary, 0.1);
+					@include m.flex-center;
+
+					.icon {
+						color: v.$color-primary;
+						font-size: 28px;
+					}
+				}
+
+				h3 {
+					font-family: v.$font-heading;
+					font-size: v.$fs-h4;
+					font-weight: v.$fw-bold;
+					color: v.$text-primary;
+				}
+
+				.subtitle {
+					font-size: v.$fs-xs;
+					color: v.$text-secondary;
+					text-transform: uppercase;
+					letter-spacing: v.$ls-wide;
+					margin-top: 2px;
+				}
+			}
+
+			.skills-progress {
+				display: flex;
+				flex-direction: column;
+				gap: v.$space-md;
+
+				.progress-item {
+					display: flex;
+					flex-direction: column;
+					gap: v.$space-xxs;
+
+					.progress-info {
+						display: flex;
+						justify-content: space-between;
+						font-size: v.$fs-xs;
+						font-weight: v.$fw-semibold;
+						color: v.$text-secondary;
+						text-transform: uppercase;
+						letter-spacing: v.$ls-wide;
+					}
+
+					.progress-bar {
+						height: 4px;
+						background-color: rgba(v.$white, 0.05);
+						border-radius: v.$radius-full;
+						overflow: hidden;
+
+						.fill {
+							height: 100%;
+							background-color: rgba(v.$color-primary, 0.5);
+							border-radius: v.$radius-full;
+						}
+					}
+				}
+			}
+		}
+
+		.cta-card {
+			padding: v.$space-xl;
+			text-align: center;
+			@include m.flex-center;
+			flex-direction: column;
+			height: 100%;
+			box-sizing: border-box;
+			border-color: rgba(v.$color-primary, 0.15);
+			position: relative;
+			overflow: hidden;
+
+			.glow-overlay {
+				position: absolute;
+				inset: 0;
+				background: radial-gradient(circle at center, rgba(v.$color-primary, 0.05) 0%, transparent 70%);
+				pointer-events: none;
+			}
+
+			h3 {
+				font-family: v.$font-heading;
+				font-size: v.$fs-h4;
+				color: v.$color-primary;
+				margin-bottom: v.$space-sm;
+				z-index: 1;
+			}
+
+			p {
+				color: v.$text-secondary;
+				font-size: v.$fs-md;
+				line-height: v.$lh-normal;
+				margin-bottom: v.$space-lg;
+				max-width: 320px;
+				z-index: 1;
+			}
+
+			.btn {
+				z-index: 1;
+				width: 100%;
+				max-width: 240px;
+				text-transform: uppercase;
+				letter-spacing: v.$ls-wide;
 			}
 		}
 	}

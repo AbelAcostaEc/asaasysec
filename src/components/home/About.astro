@@ -1,32 +1,104 @@
 ---
 import data from "../../data/general.json";
-import SkillCategory from "./SkillCategory.astro";
-
 const { about, languages, skills } = data;
 ---
 
-<!-- About & Skills -->
 <section id="about" class="about">
 	<div class="container">
-		<h2 class="section-title">Sobre <span>Mí</span></h2>
-		<div class="about-grid">
-			<div class="about-text">
-				<div class="card">
+		<!-- Part 1: Description & Paragraphs -->
+		<div class="about-intro">
+			<div class="intro-content">
+				<div class="section-tag">Sobre Mí</div>
+				<h1 class="text-gradient">Construyendo soluciones eficientes y escalables</h1>
+				<div class="intro-text">
 					{about?.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
-					<div class="languages">
-						<strong>Idiomas:</strong>
-						<ul>
-							{languages?.map((language) => <li>{language}</li>)}
-						</ul>
-					</div>
 				</div>
 			</div>
-			<div class="skills-wrapper">
+		</div>
+
+		<!-- Part 2: Stack Dashboard (Ecosistema Técnico) -->
+		<div class="stack-dashboard" id="stack">
+			<div class="stack-header">
+				<h2 class="section-subtitle">Ecosistema Técnico</h2>
+				<p>Tecnologías e ingenierías validadas en entornos de producción de alto impacto.</p>
+			</div>
+			<div class="stack-grid">
 				{
-					skills?.map((skillCategory) => {
-						return <SkillCategory title={skillCategory.category} skills={skillCategory.items} />;
-					})
+					skills?.map((skillCategory) => (
+						<div class="glass-card stack-card">
+							<div class="card-header">
+								<span class="material-symbols-outlined icon">{skillCategory.icon}</span>
+								<h3>{skillCategory.category}</h3>
+							</div>
+							<ul class="skill-list">
+								{skillCategory.items.map((item) => (
+									<li>
+										<span class="dot">&nbsp;</span>
+										{item}
+									</li>
+								))}
+							</ul>
+						</div>
+					))
 				}
+			</div>
+		</div>
+
+		<!-- Part 3: Languages & Certification -->
+		<div class="proficiency-section">
+			<div class="proficiency-grid">
+				<div class="languages-box">
+					<h2 class="section-subtitle">Idiomas</h2>
+					<div class="glass-card language-card">
+						<div class="card-header">
+							<div class="icon-wrapper">
+								<span class="material-symbols-outlined icon">language</span>
+							</div>
+							<div>
+								<h3>Inglés A2</h3>
+								<p class="subtitle">Español (Nativo) | Inglés A2 (Comprensión Técnica)</p>
+							</div>
+						</div>
+						<div class="skills-progress">
+							<div class="progress-item">
+								<div class="progress-info">
+									<span>Lectura Técnica</span>
+									<span>80%</span>
+								</div>
+								<div class="progress-bar">
+									<div class="fill" style="width: 80%"></div>
+								</div>
+							</div>
+							<div class="progress-item">
+								<div class="progress-info">
+									<span>Conversación</span>
+									<span>50%</span>
+								</div>
+								<div class="progress-bar">
+									<div class="fill" style="width: 50%"></div>
+								</div>
+							</div>
+							<div class="progress-item">
+								<div class="progress-info">
+									<span>Escucha</span>
+									<span>50%</span>
+								</div>
+								<div class="progress-bar">
+									<div class="fill" style="width: 50%"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="cta-box">
+					<div class="glass-card cta-card">
+						<div class="glow-overlay"></div>
+						<h3>¿Hablamos de arquitectura?</h3>
+						<p>Disponible para consultoría técnica o integraciones en sistemas críticos empresariales.</p>
+						<a href="#contact" class="btn btn-primary">Contáctame</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

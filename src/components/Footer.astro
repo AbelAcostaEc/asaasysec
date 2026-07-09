@@ -1,5 +1,72 @@
-<footer>
+---
+import data from "../data/general.json";
+const { name, contact } = data;
+---
+
+<footer class="footer">
 	<div class="container">
-		<p>&copy; 2026 Abel Acosta. Todos los derechos reservados.</p>
+		<div class="footer-grid">
+			<!-- Col 1: Brand Info -->
+			<div class="footer-brand">
+				<div class="brand-logo">
+					{name}
+				</div>
+				<p class="brand-description">
+					Software Engineer especializado en la construcción de sistemas empresariales escalables y automatización de procesos.
+				</p>
+				<div class="brand-location">
+					<span class="material-symbols-outlined icon">location_on</span>
+					<span>Quito, Ecuador</span>
+				</div>
+			</div>
+
+			<!-- Col 2: Professional Links -->
+			<div class="footer-links-col">
+				<h5>Enlaces Profesionales</h5>
+				<ul>
+					<li>
+						<a href={contact.github} target="_blank">
+							GitHub <span class="material-symbols-outlined arrow">north_east</span>
+						</a>
+					</li>
+					<li>
+						<a href={contact.linkedin} target="_blank">
+							LinkedIn <span class="material-symbols-outlined arrow">north_east</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							Currículum (PDF) <span class="material-symbols-outlined arrow">download</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Col 3: Communication -->
+			<div class="footer-links-col">
+				<h5>Comunicación</h5>
+				<ul>
+					<li>
+						<a href={`mailto:${contact.email}`}>
+							Email
+						</a>
+					</li>
+					<li>
+						<a href={contact.whatsapp} target="_blank">
+							WhatsApp Directo
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Bottom Copyright Row -->
+		<div class="footer-bottom">
+			<p class="copyright">&copy; {new Date().getFullYear()} {name.toUpperCase()}. CONSTRUIDO CON PRECISIÓN.</p>
+			<div class="bottom-links">
+				<a href="#">Política de Privacidad</a>
+				<a href="#">Términos Técnicos</a>
+			</div>
+		</div>
 	</div>
 </footer>

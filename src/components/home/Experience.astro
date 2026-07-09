@@ -6,27 +6,41 @@ const { experience } = data;
 <!-- Experience -->
 <section id="experience" class="experience">
 	<div class="container">
-		<h2 class="section-title">Mi <span>Experiencia</span></h2>
-		<div class="timeline">
-            {
-                experience.map((item) => {
-                    return (
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <span class="date">{item.period}</span>
-                                <h3>{item.position}</h3>
-                                <h4>{item.company}</h4>
-                                <ul>
-                                    {item.responsibilities.map((resp) => (
-                                        <li>{resp}</li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    );
-                })
-            }
+		<div class="experience-grid">
+			<div class="experience-intro">
+				<h2 class="section-subtitle">Trayectoria Profesional</h2>
+				<p class="intro-description">
+					Especializado en transformar requerimientos de negocio complejos en soluciones técnicas eficientes y escalables.
+				</p>
+				<div class="accent-line"></div>
+			</div>
+			
+			<div class="experience-timeline">
+				{
+					experience.map((item) => {
+						return (
+							<div class="timeline-item">
+								<div class="timeline-dot"></div>
+								<div class="timeline-header">
+									<div class="header-main">
+										<h3>{item.position}</h3>
+										<span class="company">{item.company}</span>
+									</div>
+									<div class="period-badge">{item.period}</div>
+								</div>
+								<ul class="responsibilities">
+									{item.responsibilities.map((resp, idx) => (
+										<li>
+											<span class="num">0{idx + 1}</span>
+											<span class="text">{resp}</span>
+										</li>
+									))}
+								</ul>
+							</div>
+						);
+					})
+				}
+			</div>
 		</div>
 	</div>
 </section>

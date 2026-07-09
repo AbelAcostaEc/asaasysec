@@ -1,0 +1,51 @@
+@use "../../abstracts/variables" as v;
+@use "../../abstracts/mixins" as m;
+
+.metrics {
+	padding-block: v.$space-xl;
+	border-block: 1px solid rgba(v.$white, 0.05);
+	background-color: rgba(v.$bg-secondary, 0.3);
+
+	.metrics-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: v.$space-md;
+
+		@media (min-width: v.$bp-mobile) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	.metric-item {
+		text-align: center;
+		padding-left: v.$space-sm;
+		border-left: 1px solid rgba(v.$white, 0.05);
+
+		@media (min-width: v.$bp-mobile) {
+			text-align: left;
+			padding-left: v.$space-md;
+		}
+
+		.metric-value {
+			font-family: v.$font-heading;
+			font-size: v.$fs-h2;
+			font-weight: v.$fw-bold;
+			color: v.$color-primary;
+			line-height: v.$lh-tight;
+			margin-bottom: v.$space-xxs;
+
+			.suffix {
+				color: rgba(v.$color-primary, 0.5);
+			}
+		}
+
+		.metric-label {
+			font-family: v.$font-heading;
+			font-size: v.$fs-xs;
+			font-weight: v.$fw-semibold;
+			color: v.$text-secondary;
+			text-transform: uppercase;
+			letter-spacing: v.$ls-wide;
+		}
+	}
+}

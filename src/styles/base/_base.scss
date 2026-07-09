@@ -42,3 +42,46 @@ section {
     width: min(100% - 2rem, v.$container-width);
     margin-inline: auto;
 }
+
+// Background Decorations
+.fixed-decorations {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	overflow: hidden;
+
+	.technical-grid {
+		position: absolute;
+		inset: 0;
+		opacity: 0.15;
+		background-image: 
+			linear-gradient(rgba(v.$color-primary, 0.05) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(v.$color-primary, 0.05) 1px, transparent 1px);
+		background-size: 40px 40px;
+	}
+
+	.glow-cyan {
+		position: absolute;
+		border-radius: 50%;
+		background: radial-gradient(circle at center, rgba(v.$color-primary, 0.08) 0%, transparent 70%);
+		
+		&.glow-top {
+			top: 0;
+			right: 0;
+			width: 800px;
+			height: 800px;
+			transform: translate(25%, -50%);
+			opacity: 0.3;
+		}
+
+		&.glow-bottom {
+			bottom: 0;
+			left: 0;
+			width: 600px;
+			height: 600px;
+			transform: translate(-25%, 50%);
+			opacity: 0.2;
+		}
+	}
+}

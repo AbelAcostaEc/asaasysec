@@ -1,121 +1,165 @@
 @use '../../abstracts/variables' as v;
 @use '../../abstracts/mixins' as m;
 
-// Experience
+// Experience Timeline Section
 .experience {
-    .timeline {
-        position: relative;
-        max-width: 800px;
-        margin: 0 auto;
+	padding-block: v.$space-2xl;
 
-        &::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: rgba(v.$white, 0.1);
+	.section-subtitle {
+		font-family: v.$font-heading;
+		font-size: v.$fs-h3;
+		font-weight: v.$fw-bold;
+		color: v.$text-primary;
+		margin-bottom: v.$space-xs;
+		text-transform: uppercase;
+		letter-spacing: v.$ls-wide;
+	}
 
-            @include m.mobile {
-                left: 20px;
-            }
-        }
+	.experience-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: v.$space-xl;
 
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-            width: 50%;
+		@media (min-width: v.$bp-tablet) {
+			grid-template-columns: 1fr 2fr;
+			gap: 4rem;
+		}
+	}
 
-            &:nth-child(odd) {
-                left: 0;
-                padding-right: 40px;
-                text-align: right;
+	.experience-intro {
+		.intro-description {
+			color: v.$text-secondary;
+			font-size: v.$fs-lg;
+			line-height: v.$lh-relaxed;
+			opacity: 0.8;
+			margin-bottom: v.$space-md;
 
-                .timeline-dot {
-                    right: -6px;
-                }
+			@include m.mobile {
+				font-size: v.$fs-md;
+			}
+		}
 
-                @include m.mobile {
-                    left: 0;
-                    width: 100%;
-                    padding-left: 50px;
-                    padding-right: 0;
-                    text-align: left;
+		.accent-line {
+			width: 80px;
+			height: 1px;
+			background-color: rgba(v.$color-primary, 0.3);
 
-                    .timeline-dot {
-                        left: 14px;
-                        right: auto;
-                    }
-                }
-            }
+			@include m.mobile {
+				display: none;
+			}
+		}
+	}
 
-            &:nth-child(even) {
-                left: 50%;
-                padding-left: 40px;
+	.experience-timeline {
+		position: relative;
+		border-left: 1px solid rgba(v.$white, 0.1);
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+		padding-left: 2rem;
+		margin-left: 0.5rem;
 
-                .timeline-dot {
-                    left: -6px;
-                }
+		@include m.mobile {
+			padding-left: 1.5rem;
+			margin-left: 0;
+		}
 
-                @include m.mobile {
-                    left: 0;
-                    width: 100%;
-                    padding-left: 50px;
+		.timeline-item {
+			position: relative;
 
-                    .timeline-dot {
-                        left: 14px;
-                    }
-                }
-            }
+			.timeline-dot {
+				position: absolute;
+				left: calc(-2rem - 5px);
+				top: 8px;
+				width: 9px;
+				height: 9px;
+				background-color: v.$color-primary;
+				border-radius: 50%;
+				box-shadow: 0 0 10px v.$color-primary;
 
-            .timeline-dot {
-                position: absolute;
-                top: 0;
-                width: 14px;
-                height: 14px;
-                background: v.$color-primary;
-                border-radius: 50%;
-                box-shadow: 0 0 0 4px rgba(v.$color-primary, 0.2);
-            }
+				@include m.mobile {
+					left: calc(-1.5rem - 5px);
+				}
+			}
 
-            .timeline-content {
-                @include m.glass-effect;
-                padding: 1.5rem;
-                border-radius: 12px;
+			.timeline-header {
+				display: flex;
+				flex-direction: column;
+				gap: v.$space-xs;
+				margin-bottom: v.$space-md;
 
-                .date {
-                    color: v.$color-primary;
-                    font-size: 0.9rem;
-                    font-weight: 600;
-                    margin-bottom: 0.5rem;
-                    display: block;
-                }
+				@media (min-width: v.$bp-mobile) {
+					flex-direction: row;
+					justify-content: space-between;
+					align-items: center;
+				}
 
-                h3 {
-                    color: v.$white;
-                    font-size: 1.2rem;
-                    margin-bottom: 0.2rem;
-                }
+				.header-main {
+					h3 {
+						font-family: v.$font-heading;
+						font-size: v.$fs-h4;
+						font-weight: v.$fw-bold;
+						color: v.$color-primary-hover;
+						margin-bottom: 2px;
+					}
 
-                h4 {
-                    color: v.$text-muted;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    margin-bottom: 1rem;
-                }
+					.company {
+						font-family: v.$font-heading;
+						font-size: v.$fs-xs;
+						font-weight: v.$fw-semibold;
+						color: v.$text-secondary;
+						text-transform: uppercase;
+						letter-spacing: v.$ls-wide;
+					}
+				}
 
-                ul {
-                    list-style: disc;
-                    list-style-position: inside;
-                    color: v.$text-muted;
-                    font-size: 0.95rem;
+				.period-badge {
+					align-self: flex-start;
+					padding: 6px 16px;
+					background-color: rgba(v.$bg-secondary, 0.5);
+					border: 1px solid rgba(v.$white, 0.05);
+					border-radius: v.$radius-full;
+					font-family: v.$font-heading;
+					font-size: 11px;
+					font-weight: v.$fw-semibold;
+					color: v.$text-secondary;
+					text-transform: uppercase;
+					letter-spacing: v.$ls-wide;
 
-                    li {
-                        margin-bottom: 0.5rem;
-                    }
-                }
-            }
-        }
-    }
+					@media (min-width: v.$bp-mobile) {
+						align-self: center;
+					}
+				}
+			}
+
+			.responsibilities {
+				display: flex;
+				flex-direction: column;
+				gap: v.$space-xs;
+
+				li {
+					display: flex;
+					gap: v.$space-sm;
+					font-size: v.$fs-md;
+					color: v.$text-secondary;
+					line-height: v.$lh-normal;
+
+					.num {
+						font-family: monospace;
+						color: rgba(v.$color-primary, 0.5);
+						font-weight: v.$fw-bold;
+						font-size: v.$fs-sm;
+						margin-top: 2px;
+					}
+
+					.text {
+						flex: 1;
+						b {
+							color: v.$white;
+						}
+					}
+				}
+			}
+		}
+	}
 }

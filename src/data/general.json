@@ -9,20 +9,34 @@
 	},
 
 	"languages": ["Español (Nativo)", "Inglés (A2)"],
+	"metrics": [
+		{ "value": "04", "suffix": "+", "label": "Años Experiencia" },
+		{ "value": "12", "suffix": "+", "label": "Apps Empresariales" },
+		{ "value": "25", "suffix": "+", "label": "APIs Rest" },
+		{ "value": "50", "suffix": "+", "label": "Flujos Autom." }
+	],
 	"main_skills": ["PHP (Laravel)", "Livewire", "Angular", "N8N", "Ionic", "Docker"],
 
 	"skills": [
 		{
-			"category": "Backend & Database",
-			"items": ["PHP (Laravel)", "MySQL", "PostgreSQL", "MongoDB", "N8N"]
+			"category": "Backend & Autom.",
+			"icon": "terminal",
+			"items": ["PHP (Laravel)", "Livewire", "N8N Workflows", "REST APIs"]
 		},
 		{
 			"category": "Frontend",
-			"items": ["Angular", "TypeScript", "HTML5", "CSS3", "JavaScript"]
+			"icon": "layers",
+			"items": ["Angular", "Ionic", "TypeScript", "CSS3 / Sass"]
+		},
+		{
+			"category": "Databases & DevOps",
+			"icon": "database",
+			"items": ["MySQL / MariaDB", "PostgreSQL", "MongoDB", "Docker"]
 		},
 		{
 			"category": "Soft Skills",
-			"items": ["Liderazgo Técnico", "Comunicación Efectiva", "Resolución de Problemas", "Adaptabilidad"]
+			"icon": "verified",
+			"items": ["Liderazgo Técnico", "Comunicación", "Resolución de Problemas"]
 		}
 	],
 

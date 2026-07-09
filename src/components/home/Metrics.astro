@@ -1,0 +1,23 @@
+---
+import data from "../../data/general.json";
+const { metrics } = data;
+---
+
+<!-- Metrics Bar -->
+<section class="metrics">
+	<div class="container">
+		<div class="metrics-grid">
+			{
+				metrics.map((metric) => (
+					<div class="metric-item">
+						<div class="metric-value">
+							{metric.value}
+							<span class="suffix">{metric.suffix}</span>
+						</div>
+						<div class="metric-label">{metric.label}</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

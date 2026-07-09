@@ -156,10 +156,16 @@ const structuredData =
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageUrl} />
+		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 		<style is:inline set:html={fontFaces}></style>
 		<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
 	</head>
 	<body>
+		<div class="fixed-decorations">
+			<div class="technical-grid"></div>
+			<div class="glow-cyan glow-top"></div>
+			<div class="glow-cyan glow-bottom"></div>
+		</div>
 		<slot />
 		<script>
 			import "../scripts/main.js";
