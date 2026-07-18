@@ -1,11 +1,14 @@
 ---
 import { withBase } from "../utils/paths";
+import logoImg from "../assets/images/logo.svg";
 ---
 
 <!-- Navbar -->
 <nav class="navbar">
 	<div class="container">
-		<a href={withBase("/")} class="logo">Abel<span>.</span></a>
+		<a href={withBase("/")} class="logo">
+			<img src={logoImg.src} alt="Abel Acosta Logo" class="logo-image" />
+		</a>
 		<div class="nav-links">
 			<a href={withBase("/#services")}>Servicios</a>
 			<a href={withBase("/#portfolio")}>Portafolio</a>

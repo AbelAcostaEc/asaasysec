@@ -93,7 +93,7 @@
 			}
 
 			span {
-				background: linear-gradient(to right, v.$color-primary, #60a5fa);
+				background: linear-gradient(to right, v.$color-primary, v.$color-primary-hover);
 				-webkit-background-clip: text;
 				background-clip: text;
 				-webkit-text-fill-color: transparent;

@@ -68,7 +68,7 @@ const fontFaces = [
 	font-style: normal;
 	font-weight: ${weight};
 	src: url('${withBase(`/fonts/${file}`)}') format('woff2');
-}`
+}`,
 	)
 	.join("\n");
 
@@ -110,7 +110,10 @@ const structuredData =
 							addressLocality: "Quito",
 							addressCountry: "EC",
 						},
-						sameAs: [general.contact.github, general.contact.linkedin],
+						sameAs: [
+							general.contact.github,
+							general.contact.linkedin,
+						],
 						knowsAbout: defaultKeywords.slice(3, 9),
 					},
 					{
@@ -130,14 +133,14 @@ const structuredData =
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href={withBase("/favicon.svg")} />
-		<link rel="icon" href={withBase("/favicon.ico")} />
+		<link rel="icon" href={withBase("/favicon.svg")} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="keywords" content={keywordContent} />
 		<meta name="author" content={general.name} />
 		<meta name="robots" content={robots} />
-		<meta name="theme-color" content="#0f172a" />
+		<meta name="theme-color" content="#0B0F19" />
 		<link rel="canonical" href={canonicalUrl} />
 
 		<meta property="og:type" content={type} />
@@ -147,8 +150,19 @@ const structuredData =
 		<meta property="og:image" content={imageUrl} />
 		<meta property="og:site_name" content={general.name} />
 		<meta property="og:locale" content="es_EC" />
-		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
-		{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+		{
+			publishedTime && (
+				<meta
+					property="article:published_time"
+					content={publishedTime}
+				/>
+			)
+		}
+		{
+			modifiedTime && (
+				<meta property="article:modified_time" content={modifiedTime} />
+			)
+		}
 		{tags.map((tag) => <meta property="article:tag" content={tag} />)}
 
 		<meta name="twitter:card" content="summary_large_image" />
@@ -156,9 +170,15 @@ const structuredData =
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={imageUrl} />
-		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+			rel="stylesheet"
+		/>
 		<style is:inline set:html={fontFaces}></style>
-		<script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify(structuredData)}
+		/>
 	</head>
 	<body>
 		<div class="fixed-decorations">

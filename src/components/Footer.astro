@@ -1,5 +1,6 @@
 ---
 import data from "../data/general.json";
+import logoImg from "../assets/images/logo.svg";
 const { name, contact, description } = data;
 ---
 
@@ -9,7 +10,7 @@ const { name, contact, description } = data;
 			<!-- Col 1: Brand Info -->
 			<div class="footer-brand">
 				<div class="brand-logo">
-					{name}
+					<img src={logoImg.src} alt="Abel Acosta Logo" class="logo-image" />
 				</div>
 				<p class="brand-description">
 					{description}

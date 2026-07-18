@@ -23,13 +23,14 @@
     }
 
     .logo {
-        font-family: v.$font-heading;
-        font-size: 1.5rem;
-        font-weight: v.$fw-bold;
-        color: v.$white;
+        display: flex;
+        align-items: center;
 
-        span {
-            color: v.$color-primary;
+        .logo-image {
+            max-width: 175px;
+            width: auto;
+            object-fit: contain;
+            display: block;
         }
     }
 
@@ -114,9 +115,11 @@
                 &:nth-child(1) {
                     transform: translateY(8px) rotate(45deg);
                 }
+
                 &:nth-child(2) {
                     opacity: 0;
                 }
+
                 &:nth-child(3) {
                     transform: translateY(-8px) rotate(-45deg);
                 }
