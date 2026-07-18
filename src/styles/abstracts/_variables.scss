@@ -3,24 +3,24 @@
 // ======================================
 
 // Backgrounds
-$bg-primary: #0d1515;
-$bg-secondary: #151d1e;
-$bg-surface: #192122;
-$bg-card: #232b2c;
+$bg-primary: #0B0F19; // Ink
+$bg-secondary: #111625; // Derived dark navy
+$bg-surface: #161C2F; // Derived navy-surface
+$bg-card: #1E263F; // Derived navy-card
 
 // Brand
-$color-primary: #00f0ff;
-$color-primary-hover: #00dbe9;
+$color-primary: #00C2FF; // Core Cyan
+$color-primary-hover: #3BE8FF; // Signal Cyan
 
 // Text
-$text-primary: #dce4e5;
-$text-secondary: #b9cacb;
-$text-muted: #b9cacb;
-$text-disabled: #849495;
+$text-primary: #F8FAFC; // Cloud White
+$text-secondary: #CBD5E1; // Slate light gray
+$text-muted: #94A3B8; // Slate medium gray
+$text-disabled: #64748B; // Slate dark gray
 
 // Borders
-$border-primary: #2e3637;
-$border-secondary: #3b494b;
+$border-primary: #1E293B; // Slate border
+$border-secondary: #334155; // Slate border secondary
 
 // Status
 $success: #22c55e;
@@ -129,7 +129,7 @@ $shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
 
 $shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.2);
 
-$shadow-glow: 0 0 30px rgba(0, 240, 255, 0.15);
+$shadow-glow: 0 0 30px rgba(59, 232, 255, 0.15);
 
 // ======================================
 // TRANSITIONS

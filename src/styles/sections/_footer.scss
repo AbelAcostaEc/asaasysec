@@ -3,7 +3,7 @@
 
 // Footer
 .footer {
-	background-color: #080f10;
+	background-color: v.$bg-secondary;
 	border-top: 1px solid rgba(v.$white, 0.05);
 	padding-top: v.$space-xl;
 	padding-bottom: v.$space-lg;
@@ -25,12 +25,15 @@
 		gap: v.$space-sm;
 
 		.brand-logo {
-			font-family: v.$font-heading;
-			font-size: v.$fs-h4;
-			font-weight: v.$fw-bold;
-			color: v.$white;
-			text-transform: uppercase;
-			letter-spacing: v.$ls-wide;
+			display: flex;
+			align-items: center;
+
+			.logo-image {
+				max-width: 250px;
+				width: auto;
+				object-fit: contain;
+				display: block;
+			}
 		}
 
 		.brand-description {
