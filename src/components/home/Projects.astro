@@ -27,7 +27,7 @@ const otherProjects = projects.slice(1);
 					<div class="project-details">
 						<div class="project-category-badge">{featuredProject.category}</div>
 						<h3 class="project-title">{featuredProject.title}</h3>
-						
+
 						<div class="project-problem-solution">
 							<div class="info-block problem-block">
 								<span class="block-title">Problema:</span>
@@ -44,6 +44,12 @@ const otherProjects = projects.slice(1);
 								<span class="tag">{tech}</span>
 							))}
 						</div>
+
+						{featuredProject.url && featuredProject.url !== "#" && (
+							<div class="project-actions">
+								<a href={featuredProject.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">Ver proyecto</a>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
@@ -59,7 +65,7 @@ const otherProjects = projects.slice(1);
 						<div class="project-card-content">
 							<div class="project-category-badge">{project.category}</div>
 							<h3>{project.title}</h3>
-							
+
 							<div class="project-problem-solution">
 								<div class="info-block problem-block">
 									<span class="block-title">Problema:</span>
@@ -76,6 +82,12 @@ const otherProjects = projects.slice(1);
 									<span class="tag">{tech}</span>
 								))}
 							</div>
+
+							{project.url && project.url !== "#" && (
+								<div class="project-actions">
+									<a href={project.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">Ver proyecto</a>
+								</div>
+							)}
 						</div>
 					</div>
 				))}
