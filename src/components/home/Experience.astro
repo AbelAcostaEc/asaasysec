@@ -1,6 +1,6 @@
 ---
 import data from "../../data/general.json";
-const { experience, description } = data;
+const { experience } = data;
 ---
 
 <!-- Experience -->
@@ -8,19 +8,24 @@ const { experience, description } = data;
 	<div class="container">
 		<div class="experience-grid">
 			<div class="experience-intro">
+				<div class="section-tag">Experiencia</div>
 				<h2 class="section-subtitle">Trayectoria Profesional</h2>
 				<p class="intro-description">
-					{description}
+					Experiencia profesional en desarrollo y modernización de sistemas empresariales, APIs, integraciones y aplicaciones web, móviles y de escritorio.
+				</p>
+				<p class="intro-note">
+					Mi experiencia profesional como desarrollador comienza en 2023. Antes de eso realicé una pasantía enfocada en QA y soporte de pruebas.
 				</p>
 				<div class="accent-line"></div>
 			</div>
-			
+
 			<div class="experience-timeline">
 				{
-					experience.map((item) => {
+					experience.map((item, index) => {
 						return (
-							<div class="timeline-item">
+							<div class:list={["timeline-item", { "timeline-item--primary": index === 0 }]}> 
 								<div class="timeline-dot"></div>
+								{index === 0 && <span class="experience-label">Experiencia actual</span>}
 								<div class="timeline-header">
 									<div class="header-main">
 										<h3>{item.position}</h3>
