@@ -1,44 +1,30 @@
 import bellasArtes from "../assets/images/projects/BellasArtes.webp";
 import artesanias from "../assets/images/projects/ArtesaniasRinoceronte.webp";
 import manualidades from "../assets/images/projects/Manualidades.webp";
-import pos from "../assets/images/projects/POS.png";
-import seolab from "../assets/images/projects/Seolab.png";
+import velntra from "../assets/images/projects/POS.png";
 
 export const projects = [
 	{
-		title: "Sistema POS para pequeños negocios",
-		description: "Sistema de gestión comercial desarrollado para digitalizar procesos de ventas, inventario y administración de pequeños negocios.",
+		title: "Velntra — Sistema administrativo y POS",
+		description: "Proyecto de portafolio orientado a construir un sistema administrativo modular para procesos reales de pequeños negocios.",
 		category: "Sistema Empresarial",
-		techStack: ["Laravel", "Livewire", "MySQL", "Bootstrap"],
-		features: ["Gestión de productos y categorías", "Control de inventario", "Registro de ventas", "Gestión de usuarios y permisos", "Reportes administrativos"],
-		problem: "Los pequeños negocios suelen perder el control de sus ventas, inventarios y clientes al llevar la administración de forma manual o en papel.",
-		solution: "Diseñé un sistema administrativo ligero que automatiza el registro de ventas, actualiza el stock en tiempo real y ofrece reportes detallados para la toma de decisiones.",
-		image: pos,
+		techStack: ["Laravel", "Livewire", "Volt", "MySQL", "Docker", "Spatie Permission"],
+		features: ["Autenticación", "Usuarios", "Roles y permisos", "Arquitectura modular", "Entorno Docker"],
+		problem: "Los pequeños negocios necesitan centralizar ventas, inventario, usuarios y otros procesos administrativos sin depender de registros manuales dispersos.",
+		solution: "Estoy desarrollando una base modular sobre Laravel para gestionar estos procesos por etapas, comenzando por autenticación, administración de usuarios, roles y permisos.",
+		image: velntra,
 		status: "En desarrollo",
-		url: "#",
+		url: "https://github.com/AbelAcostaEc/Velntra",
 	},
-
-	// {
-	// 	title: "Seolab",
-	// 	description: "Plataforma orientada al análisis SEO de sitios web para ayudar a identificar oportunidades de mejora y optimización.",
-	// 	category: "SaaS",
-	// 	techStack: ["Laravel", "Python", "Docker", "APIs"],
-	// 	features: ["Análisis automatizado de sitios web", "Procesamiento de información SEO", "Arquitectura preparada para crecimiento"],
-	// 	problem: "Analizar el SEO de un sitio web manualmente es un proceso complejo y técnico que impide a dueños de negocios optimizar su presencia digital.",
-	// 	solution: "Creé una plataforma automatizada que analiza la URL, procesa los parámetros clave y genera reportes prácticos con recomendaciones sencillas para mejorar en buscadores.",
-	// 	image: seolab,
-	// 	status: "En desarrollo",
-	// 	url: "#",
-	// },
 
 	{
 		title: "Bellas Artes",
-		description: "Tienda online desarrollada para un negocio de productos artesanales, permitiendo mostrar su catálogo y facilitar la gestión de contenido.",
+		description: "Tienda online desarrollada para un negocio de productos artesanales, enfocada en presentar su catálogo y facilitar la gestión de contenido.",
 		category: "E-commerce",
 		techStack: ["WordPress", "Elementor"],
 		features: ["Catálogo de productos", "Diseño adaptable a dispositivos móviles", "Gestión sencilla de contenido"],
-		problem: "El taller artesanal limitaba sus ventas únicamente al público físico local debido a la falta de una plataforma de comercio digital.",
-		solution: "Desarrollé una tienda virtual autoadministrable con un catálogo fluido que permite vender y recibir pedidos a nivel nacional de forma sencilla.",
+		problem: "El negocio necesitaba una presencia digital donde pudiera presentar sus productos de forma ordenada y administrable.",
+		solution: "Implementé una tienda virtual autoadministrable con estructura de catálogo y diseño adaptable para facilitar la consulta de productos desde distintos dispositivos.",
 		image: bellasArtes,
 		status: "Completado",
 		url: "#",
@@ -50,8 +36,8 @@ export const projects = [
 		category: "Página Web",
 		techStack: ["HTML5", "CSS3", "JavaScript"],
 		features: ["Diseño responsive", "Presentación de productos", "Estructura optimizada para buscadores"],
-		problem: "El negocio carecía de una carta de presentación profesional en internet para mostrar su catálogo a clientes potenciales.",
-		solution: "Construí un sitio web informativo, rápido y optimizado para buscadores que destaca los productos e impulsa el contacto directo.",
+		problem: "El negocio necesitaba una carta de presentación en internet para mostrar su trabajo y facilitar el contacto con clientes potenciales.",
+		solution: "Construí un sitio web informativo y responsive que organiza los productos y servicios del negocio y facilita el contacto directo.",
 		image: artesanias,
 		status: "Completado",
 		url: "https://artesaniasrinoceronte.netlify.app",
@@ -63,8 +49,8 @@ export const projects = [
 		category: "Página Web",
 		techStack: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
 		features: ["Galería de productos", "Diseño responsive", "Sección informativa del negocio"],
-		problem: "Dificultad para exhibir las creaciones personalizadas y capturar pedidos específicos de clientes interesados.",
-		solution: "Diseñé una página web con una galería visual dinámica y acceso integrado para solicitar cotizaciones personalizadas de forma rápida.",
+		problem: "El negocio necesitaba exhibir sus trabajos y ofrecer una forma sencilla de contacto para personas interesadas en pedidos personalizados.",
+		solution: "Desarrollé una página responsive con galería de productos, información del negocio y acceso directo para consultas.",
 		image: manualidades,
 		status: "Completado",
 		url: "https://manualidadesasa.netlify.app",

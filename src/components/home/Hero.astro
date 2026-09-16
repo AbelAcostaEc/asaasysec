@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import fotoAbel from "../../assets/images/foto_Abel.jpeg";
 import data from "../../data/general.json";
-const { title, description, main_skills } = data;
+const { main_skills } = data;
 ---
 
 <!-- Hero Section -->
@@ -10,18 +8,18 @@ const { title, description, main_skills } = data;
 	<div class="container">
 		<div class="hero-badge">
 			<span class="dot">&nbsp;</span>
-			<span class="">Disponible para proyectos</span>
+			<span>Disponible para oportunidades y proyectos</span>
 		</div>
 		<div class="hero-content">
 			<div class="hero-text">
-				<h1>Transformo procesos empresariales en soluciones digitales</h1>
-				<p>Desarrollador Full Stack especializado en crear sistemas web, plataformas administrativas y aplicaciones personalizadas para empresas y negocios.</p>
+				<h1>Desarrollo sistemas empresariales y soluciones Full Stack</h1>
+				<p>Desarrollador Full Stack enfocado en PHP y Laravel, con experiencia en sistemas empresariales, APIs REST, Angular, automatizaciones e integraciones.</p>
 				<div class="skills-container">
 					{main_skills.map((skill) => <span class="skill">{skill}</span>)}
 				</div>
 				<div class="hero-btns">
-					<a href="#contact" class="btn btn-primary">Solicitar proyecto</a>
-					<a href="#portfolio" class="btn btn-outline btn-outline-white">Ver Proyectos</a>
+					<a href="#contact" class="btn btn-primary">Contactarme</a>
+					<a href="#portfolio" class="btn btn-outline btn-outline-white">Ver proyectos</a>
 				</div>
 			</div>
 		</div>
