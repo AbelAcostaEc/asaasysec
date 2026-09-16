@@ -9,7 +9,7 @@
 		display: flex;
 		align-items: center;
 		gap: v.$space-md;
-		margin-bottom: v.$space-xl;
+		margin-bottom: v.$space-xs;
 
 		@include m.mobile {
 			flex-direction: column;
@@ -54,7 +54,21 @@
 		}
 	}
 
-	// Project Badges (used in both featured and standard cards)
+	.portfolio-intro {
+		max-width: 760px;
+		margin-bottom: v.$space-xl;
+		color: v.$text-secondary;
+		font-size: v.$fs-md;
+		line-height: v.$lh-relaxed;
+	}
+
+	.project-meta {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: v.$space-xs;
+	}
+
 	.project-category-badge {
 		font-family: v.$font-heading;
 		font-size: 10px;
@@ -68,7 +82,25 @@
 		width: fit-content;
 	}
 
-	// Problem and Solution Blocks
+	.project-status {
+		font-family: v.$font-heading;
+		font-size: 10px;
+		font-weight: v.$fw-semibold;
+		color: v.$text-secondary;
+		background: rgba(v.$white, 0.035);
+		border: 1px solid rgba(v.$white, 0.07);
+		padding: 4px 9px;
+		border-radius: v.$radius-full;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+	}
+
+	.project-description {
+		color: v.$text-secondary;
+		font-size: v.$fs-md;
+		line-height: v.$lh-relaxed;
+	}
+
 	.project-problem-solution {
 		display: flex;
 		flex-direction: column;
@@ -114,7 +146,6 @@
 		}
 	}
 
-	// Tech tags list
 	.tech-tags {
 		display: flex;
 		flex-wrap: wrap;
@@ -131,20 +162,56 @@
 		}
 	}
 
-	// Button styling
-	.study-btn {
-		width: 100%;
-		text-align: center;
-		padding-block: v.$space-sm;
-		text-transform: uppercase;
-		font-weight: v.$fw-bold;
-		letter-spacing: v.$ls-wide;
+	.project-actions {
+		margin-top: auto;
+		padding-top: v.$space-xs;
+
+		.btn {
+			width: fit-content;
+		}
 	}
 
-	// Featured Project Card (Main Project)
+	.project-visual-content {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		min-height: 100%;
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		gap: v.$space-xxs;
+		padding: v.$space-lg;
+		background-image:
+			linear-gradient(rgba(v.$color-primary, 0.035) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(v.$color-primary, 0.035) 1px, transparent 1px);
+		background-size: 28px 28px;
+
+		.visual-kicker {
+			font-family: v.$font-heading;
+			font-size: 10px;
+			font-weight: v.$fw-bold;
+			color: v.$color-primary;
+			text-transform: uppercase;
+			letter-spacing: v.$ls-wide;
+		}
+
+		h4 {
+			font-family: v.$font-heading;
+			font-size: v.$fs-h3;
+			font-weight: v.$fw-bold;
+			color: v.$text-primary;
+		}
+
+		p {
+			font-size: v.$fs-sm;
+			color: v.$text-secondary;
+		}
+	}
+
 	.featured-project-card {
 		overflow: hidden;
 		margin-bottom: v.$space-xl;
+		border-color: rgba(v.$color-primary, 0.12);
 
 		.featured-grid {
 			display: grid;
@@ -175,7 +242,7 @@
 				position: absolute;
 				inset: 0;
 				opacity: 0.15;
-				background-image: 
+				background-image:
 					linear-gradient(rgba(v.$color-primary, 0.05) 1px, transparent 1px),
 					linear-gradient(90deg, rgba(v.$color-primary, 0.05) 1px, transparent 1px);
 				background-size: 40px 40px;
@@ -209,7 +276,6 @@
 			padding: v.$space-lg;
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
 			gap: v.$space-md;
 			background-color: rgba(v.$bg-secondary, 0.2);
 
@@ -222,23 +288,15 @@
 				font-size: v.$fs-h3;
 				color: v.$text-primary;
 				font-weight: v.$fw-bold;
-				margin-bottom: v.$space-xxs;
+				margin-bottom: 0;
 
 				@include m.mobile {
 					font-size: v.$fs-h4;
 				}
 			}
-
-			.study-btn {
-				@media (min-width: v.$bp-mobile) {
-					width: fit-content;
-					padding-inline: v.$space-lg;
-				}
-			}
 		}
 	}
 
-	// Other Projects Grid (Secondary Projects)
 	.other-projects-grid {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -257,6 +315,8 @@
 
 			&:hover {
 				transform: translateY(-5px);
+				border-color: rgba(v.$color-primary, 0.18);
+
 				h3 {
 					color: v.$color-primary;
 				}
@@ -268,6 +328,7 @@
 				border-radius: v.$radius-md;
 				overflow: hidden;
 				border: 1px solid rgba(v.$white, 0.05);
+				background-color: rgba(v.$bg-secondary, 0.6);
 
 				img {
 					width: 100%;
@@ -277,8 +338,13 @@
 				}
 			}
 
+			.project-card-visual {
+				border-color: rgba(v.$color-primary, 0.12);
+			}
+
 			.project-card-content {
 				display: flex;
+				flex: 1;
 				flex-direction: column;
 				gap: v.$space-sm;
 

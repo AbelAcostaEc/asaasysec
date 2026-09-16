@@ -11,9 +11,12 @@ const otherProjects = projects.slice(1);
 	<div class="container">
 		<div class="portfolio-header">
 			<div class="section-tag">Portafolio</div>
-			<h2 class="section-title">Soluciones Desarrolladas</h2>
+			<h2 class="section-title">Proyectos destacados</h2>
 			<div class="header-line"></div>
 		</div>
+		<p class="portfolio-intro">
+			Una selección de proyectos que representan mi trabajo actual en sistemas empresariales, frontend moderno y fundamentos de backend.
+		</p>
 
 		{featuredProject && (
 			<div class="glass-card featured-project-card">
@@ -21,20 +24,32 @@ const otherProjects = projects.slice(1);
 					<div class="project-image-wrapper">
 						<div class="technical-grid-overlay"></div>
 						<div class="img-container">
-							<Image src={featuredProject.image} alt={featuredProject.title} width={800} quality={85} loading="eager" />
+							{featuredProject.image ? (
+								<Image src={featuredProject.image} alt={featuredProject.title} width={800} quality={85} loading="eager" />
+							) : (
+								<div class="project-visual-content">
+									<span class="visual-kicker">{featuredProject.visual?.eyebrow ?? featuredProject.category}</span>
+									<h4>{featuredProject.visual?.title ?? featuredProject.title}</h4>
+									<p>{featuredProject.visual?.subtitle ?? featuredProject.techStack.join(" · ")}</p>
+								</div>
+							)}
 						</div>
 					</div>
 					<div class="project-details">
-						<div class="project-category-badge">{featuredProject.category}</div>
+						<div class="project-meta">
+							<div class="project-category-badge">{featuredProject.category}</div>
+							<span class="project-status">{featuredProject.status}</span>
+						</div>
 						<h3 class="project-title">{featuredProject.title}</h3>
+						<p class="project-description">{featuredProject.description}</p>
 
 						<div class="project-problem-solution">
 							<div class="info-block problem-block">
-								<span class="block-title">Problema:</span>
+								<span class="block-title">{featuredProject.problemLabel ?? "Objetivo"}:</span>
 								<p>{featuredProject.problem}</p>
 							</div>
 							<div class="info-block solution-block">
-								<span class="block-title">Solución:</span>
+								<span class="block-title">{featuredProject.solutionLabel ?? "Implementación"}:</span>
 								<p>{featuredProject.solution}</p>
 							</div>
 						</div>
@@ -47,7 +62,9 @@ const otherProjects = projects.slice(1);
 
 						{featuredProject.url && featuredProject.url !== "#" && (
 							<div class="project-actions">
-								<a href={featuredProject.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">Ver proyecto</a>
+								<a href={featuredProject.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">
+									{featuredProject.linkLabel ?? "Ver proyecto"}
+								</a>
 							</div>
 						)}
 					</div>
@@ -59,20 +76,32 @@ const otherProjects = projects.slice(1);
 			<div class="other-projects-grid">
 				{otherProjects.map((project) => (
 					<div class="glass-card project-card">
-						<div class="project-card-image">
-							<Image src={project.image} alt={project.title} width={400} quality={80} />
+						<div class:list={["project-card-image", { "project-card-visual": !project.image }]}> 
+							{project.image ? (
+								<Image src={project.image} alt={project.title} width={400} quality={80} />
+							) : (
+								<div class="project-visual-content">
+									<span class="visual-kicker">{project.visual?.eyebrow ?? project.category}</span>
+									<h4>{project.visual?.title ?? project.title}</h4>
+									<p>{project.visual?.subtitle ?? project.techStack.join(" · ")}</p>
+								</div>
+							)}
 						</div>
 						<div class="project-card-content">
-							<div class="project-category-badge">{project.category}</div>
+							<div class="project-meta">
+								<div class="project-category-badge">{project.category}</div>
+								<span class="project-status">{project.status}</span>
+							</div>
 							<h3>{project.title}</h3>
+							<p class="project-description">{project.description}</p>
 
 							<div class="project-problem-solution">
 								<div class="info-block problem-block">
-									<span class="block-title">Problema:</span>
+									<span class="block-title">{project.problemLabel ?? "Objetivo"}:</span>
 									<p>{project.problem}</p>
 								</div>
 								<div class="info-block solution-block">
-									<span class="block-title">Solución:</span>
+									<span class="block-title">{project.solutionLabel ?? "Implementación"}:</span>
 									<p>{project.solution}</p>
 								</div>
 							</div>
@@ -85,7 +114,9 @@ const otherProjects = projects.slice(1);
 
 							{project.url && project.url !== "#" && (
 								<div class="project-actions">
-									<a href={project.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">Ver proyecto</a>
+									<a href={project.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-outline-white">
+										{project.linkLabel ?? "Ver proyecto"}
+									</a>
 								</div>
 							)}
 						</div>
